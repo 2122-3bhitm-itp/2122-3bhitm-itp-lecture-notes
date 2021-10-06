@@ -27,6 +27,8 @@ Prof. Aberger anwesend
 
 * Datenmodellierung: Bsp: Motel
 
+image::motel-angabe.png[]
+
 .CLD Motel
 [plantuml,cld-motel,png]
 ----

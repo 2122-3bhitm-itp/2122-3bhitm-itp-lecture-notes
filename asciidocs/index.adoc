@@ -1,0 +1,43 @@
+= Lecture Notes / 3bhitm / ITP
+Thomas W. Stütz
+1.0.0, {docdate}: ITP
+ifndef::imagesdir[:imagesdir: images]
+//:toc-placement!:  // prevents the generation of the doc at this position, so it can be printed afterwards
+:sourcedir: ../src/main/java
+:icons: font
+:sectnums:    // Nummerierung der Überschriften / section numbering
+:toc: left
+
+//Need this blank line after ifdef, don't know why...
+ifdef::backend-html5[]
+
+// print the toc here (not at the default position)
+//toc::[]
+
+== 2021-09-28 (Dienstag)
+
+Prof. Aberger anwesend
+
+* Linux shell commands
+
+
+== 2021-10-05 (Donnerstag)
+
+(1 EH entfallen)
+
+* Datenmodellierung: Bsp: Motel
+
+.CLD Motel
+[plantuml,cld-motel,png]
+----
+include::plantuml/motel.puml[]
+----
+
+== 2021-10-05 (Dienstag)
+
+Prof. Aberger anwesend
+
+* Linux-Shell commands
+* Docker Einführung (siehe https://htl-leonding-college.github.io/docker-lecture-notes/docker.html[Technology Notes, window="_blank"])
+
+

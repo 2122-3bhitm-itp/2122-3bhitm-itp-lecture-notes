@@ -1,0 +1,46 @@
+@startuml
+left to right direction
+class Motel {
+}
+
+class Stadt {
+}
+
+class Kategorie {
+}
+
+class Buchung {
+   -von: LocalDate
+   -bis: LocalDate
+}
+
+class Reservierung {
+   -von: LocalDate
+   -bis: LocalDate
+}
+
+class Ausgabe {
+}
+
+class Kunde {
+}
+
+class Zimmer {
+}
+
+Stadt "1" <-- "*" Motel
+Motel "1" <-- "*" Zimmer
+Kategorie <-- Zimmer
+Buchung --> Kunde
+Zimmer <-- Buchung
+Reservierung --> Kunde
+Zimmer <-- Reservierung
+
+note as kat
+Kategorien:
+- Doppelzimmer
+- Einzelzimmer
+- Suite
+end note
+
+@enduml

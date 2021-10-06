@@ -20,6 +20,38 @@ Prof. Aberger anwesend
 
 * Linux shell commands
 
+[source,shell]
+----
+32  echo $PATH
+   33  ll
+   34  echo Hello World
+   35  echo $USER
+   36  set
+   37  env
+   38  set | more
+   39  env | grep BASH
+   40  env | grep HOSTNAME
+   41  env
+   42  set | grep BASH
+   43  set | grep HELLO
+   44  set | grep SURFACE
+   45  SURFACE=TOMTAILOR
+   46  set | grep SURFACE
+   47  ll
+   48  where java
+   49  which java
+   50  ls -l /usr/bin
+   51  ls -l /etc/alternatives
+   52  ls -l /etc/alternatives/java
+   53  sudo update-alternatives --config java
+   54  sudo apt install openjdk-11-jdk
+   55  sudo update-alternatives --config java
+   56  java -version
+   57  sudo update-alternatives --config java
+   58  java -version
+   59  which java
+   60  docker version
+----
 
 == 2021-10-05 (Donnerstag)
 
@@ -29,7 +61,7 @@ Prof. Aberger anwesend
 
 image::motel-angabe.png[]
 
-.CLD Motel
+.CLD Motel (noch nicht fertig)
 [plantuml,cld-motel,png]
 ----
 include::plantuml/motel.puml[]
@@ -39,7 +71,28 @@ include::plantuml/motel.puml[]
 
 Prof. Aberger anwesend
 
-* Linux-Shell commands
-* Docker Einführung (siehe https://htl-leonding-college.github.io/docker-lecture-notes/docker.html[Technology Notes, window="_blank"])
+=== Linux-Shell commands
 
 
+
+* https://medium.com/@js_debugger/how-to-install-firefox-developer-edition-on-ubuntu-1c7f5f2b6883[How to Install Firefox Developer Edition on Ubuntu, window="_blank"]
+
+=== Docker Einführung
+
+* siehe https://htl-leonding-college.github.io/docker-lecture-notes/docker.html[Technology Notes, window="_blank"]
+
+* https://docs.docker.com/engine/install/ubuntu/[Installation von Docker, window="_blank"]
+
+.Eintragen des docker-Users in die docker-group
+[source,bash]
+----
+   68  docker version
+   69  sudo docker version
+   70  sudo docker run hello-world
+   71  sudo groupadd docker
+   72  sudo usermod -aG docker $USER
+   73  docker run hello-world
+   76  newgrp docker
+   77  docker run hello-world
+   78  docker run docker/whalesay Hallo 3BHITM
+----

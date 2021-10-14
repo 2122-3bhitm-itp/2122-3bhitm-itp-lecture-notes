@@ -96,3 +96,27 @@ Prof. Aberger anwesend
    77  docker run hello-world
    78  docker run docker/whalesay Hallo 3BHITM
 ----
+
+== 2021-10-07, Do.
+
+* Projektarten
+
+== 2021-10-14, Do.
+
+* Projektantrag (project proposal)
+* Vorstudie
+* Machbarkeitsstudie
+* Projektantrag (project order)
+
+=== Projektziele
+image::magisches-dreieck.png[]
+
+* Kann durch Qualität erweitert werden.
+
+
+
+
+
+
+
+

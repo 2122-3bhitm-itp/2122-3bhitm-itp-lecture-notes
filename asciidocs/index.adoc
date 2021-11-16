@@ -106,15 +106,187 @@ Prof. Aberger anwesend
 * Projektantrag (project proposal)
 * Vorstudie
 * Machbarkeitsstudie
-* Projektantrag (project order)
+* Projektauftrag (project order)
 
 === Projektziele
 image::magisches-dreieck.png[]
 
 * Kann durch Qualität erweitert werden.
 
+== 2021-10-19
+
+=== Prof. Aberger: gh-actions
 
 
+== 2021-10-21
+
+* Linuxe repariert
+* abgegebene Projektanträge besprochen
+
+
+== 2021-11-09 (Prof. Aberger)
+
+=== Build-Tools: maven
+
+Source: .java -> .class -> .jar (gezipt)
+
+----
+java -jar MyClass
+----
+
+==== Was ist ein tar-Archiv
+
+* Was ist ein .tar.gz
+** tape archive (kommt von den Bandlaufwerken)
+** ist nicht komprimiert (nur Verzeichnisstruktur)
+** mit gzip wird komprimiert
+
+----
+tar -xzf xxx.tar.gz
+----
+
+==== WSL2
+
+* öffnen des Explorers
+* in Leiste `//wsl$` eingeben
+
+oder
+
+* Windows-Terminal downloaden vom Microsoft Store
+* installieren
+* öffnen
+* dann einfach explorer eingeben
+
+==== Installation von maven
+* downloaden https://maven.apache.org/download.cgi (entweder .tar.gz oder .zip)
+* in  opt-Verzeichnis kopieren
+
+.Verschieben ins opr-verzeichnis
+----
+sudo mv /<username>/Download/apache-maven-3.8.3-bin.tar.gz /opt
+----
+
+.Entpacken im opt
+----
+sudo tar -xzf apache-maven-3.8.3-bin.tar.gz
+----
+
+.Umbenennen des Folders zu `maven`
+----
+mv apache-maven-3.8.3 maven
+----
+
+
+----
+ cat maven-env.sh
+ ./maven-env.sh
+ echo $MAVEN_HOME
+ source ./maven-env.sh
+ echo $MAVEN_HOME
+ cd /opt
+ echo $MAVEN_HOME
+ . ./maven-env.sh
+ echo $MAVEN_HOME
+ cd /opt
+ . maven-env.sh
+ . ./maven-env.sh
+ echo $MAVEN_HOME
+ env
+ echo $MAVEN_HOME
+ . ./maven-env.sh
+ echo $PATH
+ nano maven-env.sh
+ . ./maven-env.sh
+ echo $PATH
+ mvn -version
+----
+
+----
+#aufrufen mit: source maven-env.sh
+export MAVEN_HOME=/opt/maven
+export PATH=$MAVEN_HOME/bin:$PATH
+----
+
+=== Erstellen eines Projekts mit maven
+
+==== maven - Verzeichnisstruktur
+
+* https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html
+
+----
+mvn clean package
+----
+
+
+== 2021-11-11
+
+=== Reverse Engineering
+
+image::reverse-engineering.png[]
+
+=== Projektthemen
+
+|===
+|Projekt|Team
+
+|Diagramm-Generator
+|_Eder Moritz_, Al Sabagh A., Angerer Mona
+
+|Uno-Kartenspiel
+|_Spindler Thomas_, Reiter Lydia, Just Elias, Thaller David
+
+|Kino Reservierung
+|_Schatzberger Oliver_, Klose Peter, Lummerstorfer Lukas, Hager Sebastian
+
+|Versteigerungs-programm
+|_Jaklitsch Julian_, Scharrer Raphael, Goldmann Pascal, Mihaescu Teofan
+
+|Fragebogen-Programm
+|_Weinhäupl_, Lautischer, (Knoll), (Horner), (Brunner)
+
+
+|===
+
+
+== 2021-11-16 Maven Fortsetzung
+
+=== Multimodule
+
+* Die Packages im Java-Code werden beim compilieren in einer Verzeichnisstruktur abgebildet
+
+image::packages.png[]
+
+=== Semantische Versionierung
+
+https://semver.org/lang/de/
+
+
+* z.B 5.3.2
+** 5 -> Major-Version
+** 3 -> Minor-Version
+** 2 -> Patch
+
+Auf Grundlage einer Versionsnummer von MAJOR.MINOR.PATCH werden die einzelnen Elemente folgendermaßen erhöht:
+
+* MAJOR wird erhöht, wenn API-inkompatible Änderungen veröffentlicht werden,
+* MINOR wird erhöht, wenn neue Funktionalitäten, welche kompatibel zur bisherigen API sind, veröffentlicht werden, und
+* PATCH wird erhöht, wenn die Änderungen ausschließlich API-kompatible Bugfixes umfassen.
+
+Außerdem sind Bezeichner für Vorveröffentlichungen und Build-Metadaten als Erweiterungen zum MAJOR.MINOR.PATCH Format verfügbar.
+
+
+=== XML
+
+* Extensible Markup Language
+* vergleichbar mit HTML
+** es gibt Anfangs- und Ende-Tags
+** allerdings kann ich meine eigenen Tags verwenden
+* Mit Parsern (Syntaxanalysatoren) kann man XML-Files gut lesen
+
+=== pom.xml
+
+* ist deklarativ (nicht imparativ)
+* Das Projektergebnis wird beschrieben und nicht der Weg dorthin.
 
 
 

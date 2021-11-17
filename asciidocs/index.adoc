@@ -233,7 +233,7 @@ image::reverse-engineering.png[]
 |_Eder Moritz_, Al Sabagh A., Angerer Mona
 
 |Uno-Kartenspiel
-|_Spindler Thomas_, Reiter Lydia, Just Elias, Thaller David
+|_Spindler Thomas_, Reiter Lydia, Just Elias, Thaller David, Lautischer
 
 |Kino Reservierung
 |_Schatzberger Oliver_, Klose Peter, Lummerstorfer Lukas, Hager Sebastian
@@ -242,7 +242,7 @@ image::reverse-engineering.png[]
 |_Jaklitsch Julian_, Scharrer Raphael, Goldmann Pascal, Mihaescu Teofan
 
 |Fragebogen-Programm
-|_Weinhäupl_, Lautischer, (Knoll), (Horner), (Brunner)
+|_Weinhäupl_, (Knoll), (Horner), (Brunner)
 
 
 |===

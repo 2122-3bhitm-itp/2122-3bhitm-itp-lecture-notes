@@ -291,4 +291,54 @@ Außerdem sind Bezeichner für Vorveröffentlichungen und Build-Metadaten als Er
 
 
 
+== 2021-11-18
+
+== Projektauftrag kontrolliert
+
+== UML Klassediagramm
+
+=== Multiplizität
+
+* Es gibt 2 Arten:
+** Multiplizität i.S.v
+*** Eine Klasse kann 0 Instanzen haben -> Utility-Klasse
+*** Eine Klasse kann ein Objekt haben -> Singleton
+*** Eine Klasse kann mehrere Objekte instanzieren
+
+** Multiplizität i.S.v
+*** einer Kardinalität bei Datenbanken
++
+[plantuml,kardinalitaet,png]
+----
+@startuml
+left to right direction
+Person "1" <--- "0..*" Haustier : besitzt >
+@enduml
+----
+
+IMPORTANT: Bei Generalisierung noch complete / incomplete und disjoint/overlapping besprechen
+
+== Notationen
+
+|===
+|Notation |Beispiel
+
+|PascalCase
+|NetworkController
+
+|CamelCase
+|networkController
+
+|SnakeCase
+|network_controller
+
+|KebabCase
+|network-controller
+|===
+
+
+== 2021-12-07
+
+* Git-Grundlagen
+
 

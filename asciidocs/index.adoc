@@ -316,8 +316,6 @@ Person "1" <--- "0..*" Haustier : besitzt >
 @enduml
 ----
 
-IMPORTANT: Bei Generalisierung noch complete / incomplete und disjoint/overlapping besprechen
-
 == Notationen
 
 |===
@@ -339,6 +337,31 @@ IMPORTANT: Bei Generalisierung noch complete / incomplete und disjoint/overlappi
 
 == 2021-12-07
 
-* Git-Grundlagen
+
+* https://htl-leonding-college.github.io/git-lecture-notes/[Git-Grundlagen, window="_blank"]
+
+
+== 2021-12-09 (Donnerstag)
+
+=== UML-Klassendiagramm (Testverbesserung)
+
+[plantuml,test01cld,png]
+----
+include::plantuml/cld-live.puml[]
+----
+
+----
+Skipper(Vorname, Nachname, ...)
+Segler(...)
+----
+
+IMPORTANT: Bei Generalisierung noch complete / incomplete und disjoint/overlapping besprechen
+
+
+=== Buch Kapitel 2: Projektbegründung wiederholt
+
+=== Buch Kapitel 3: Projektorganisation fertig
+
+
 
 

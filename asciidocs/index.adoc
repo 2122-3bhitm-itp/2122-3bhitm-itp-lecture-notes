@@ -363,5 +363,55 @@ IMPORTANT: Bei Generalisierung noch complete / incomplete und disjoint/overlappi
 === Buch Kapitel 3: Projektorganisation fertig
 
 
+== 2021-12-16
+
+=== Was ist Asciidoctor?
+
+==== Problemstellung
+
+* Dokumentationen für Software Projekte werden oft in binären Formaten wie MS-Word, LibreOffice usw erstellt.
+* Problem dabei ist, dass die Versionierung solcher Dokumente nur eingeschränkt möglich ist.
+* Besser wäre:
+** wenn sämtliche Dokumentation als Text vorliegt
+** auch sollte die Dokumentation von Softwaresystemen direkt aus dem Code generiert werden
+
+==== Lösung
+* Verwendet man solche Auszeichnungssprachen wie Markdown, plantuml und Asciidoctor / Asciidoc so spricht man von "doc-as-code"
+** Die Dokumentation wird nicht mit eigenen Werkzeugen (Textverarbeitung, Zeichenprogramm usw. erstellt), sonder in der IDE, in der auch die Programme erstellt werden
+
+==== Umsetzung
+
+
+===== Markdown
+
+* Für markdown gibt es eigene Tools zb MacDown für MacOS, Notion als Browser-Plugin, bzw Plugins für sämtliche IDEs zB VSC, intellij, usw
+* markdown wird in github und in wikis wie zB der wikipedia verwendet
+
+* Nachteile:
+** beschränkte Möglichkeiten -> daher ist es schwieriger umfangreiche Dokumente zu erstellen
+
+* Vorteile:
+** beschränkte Möglichkeiten -> daher nicht so schwer zu lernen
+
+
+===== Asciidoctor
+
+* vice versa wie Markdown (größerer Funktionsumfang)
+
+* Quellen zum nachsehen / lernen
+** https://docs.asciidoctor.org/asciidoc/latest/
+** https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+** https://docs.asciidoctor.org/reveal.js-converter/latest/showcase/
+
+==== Deployment
+
+* Asciidoctor kann local installiert werden (Das wird nicht empfohlen)
+* Besser
+** Für lokales Arbeiten, das IDE-Plugin verwenden zB für intellij
+** für das Deployment verwendet man
+*** entweder Docker
+*** oder github-actions
+
+
 
 

@@ -402,6 +402,7 @@ IMPORTANT: Bei Generalisierung noch complete / incomplete und disjoint/overlappi
 ** https://docs.asciidoctor.org/asciidoc/latest/
 ** https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
 ** https://docs.asciidoctor.org/reveal.js-converter/latest/showcase/
+** https://github.com/Zenika/adoc-presentation-model
 
 ==== Deployment
 

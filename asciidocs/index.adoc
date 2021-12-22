@@ -407,12 +407,138 @@ IMPORTANT: Bei Generalisierung noch complete / incomplete und disjoint/overlappi
 ==== Deployment
 
 * Asciidoctor kann local installiert werden (Das wird nicht empfohlen)
-* Besser
+* Besser mit Docker
 ** Für lokales Arbeiten, das IDE-Plugin verwenden zB für intellij
 ** für das Deployment verwendet man
 *** entweder Docker
 *** oder github-actions
 
 
+== 2021-12-21
+
+=== Übung: Branching, Merging
+
+.History 21.12.21 Eder:
+----
+368 pwd
+  369  cd
+  370  ls .ssh
+  371  ls -l
+  372  ls -l .ssh
+  373  gedit .ssh/id_rsa.pub
+  374  cd 3bhitm-labs-eder/
+  375  git status
+  376  cd ..
+  377  rm -rf 3bhitm-labs-eder/
+  378  ll
+  379  mkdir work
+  380  cd work/
+  381  git clone git@github.com:EderMoritz/3bhitm-labs-eder.git
+  382  cd 3bhitm-labs-eder/
+  383  ld
+  384  ls
+  385  gedit README.md
+  386  git status
+  387  git add README.md
+  388  git status
+  389  git commit -m "test merge"
+  390  git status
+  391  git push
+  392  git pull
+  393  git config pull.rebase false
+  394  gedit README.md
+  395  git add .
+  396  git commit -m "update README"
+  397  git push
+----
+
+.Reiter Lydia
+----
+775  cd 3bhitm-labs-eder/
+  776  gedit README.md
+  777  git pull
+  778  gedit README.md
+  779  git add .
+  780  git commit -m "change read.me"
+  781  git push
+  782  cd ..
+  783  rm 3bhitm-labs-eder/
+  784  ll
+  785  git clone git@github.com:EderMoritz/3bhitm-labs-eder.git
+  786  cd 3bhitm-labs-eder/
+  787  ll
+  788  nano README.md
+  789  git add .
+  790  git commit -m "changed README.md"
+  791  git push
+  792  history
+  793  git add .
+  795  git commit -m "updated by Lydia"
+  796  git push
+----
 
 
+
+=== Github Keygen (Mitschrift Thomas Spindler)
+
+mithilfe von SSH keys:
+
+    ssh-keygen -t rsa
+
+=== GIT  (Mitschrift Thomas Spindler)
+
+neuen Ordner erstellen und erneut Klonen
+
+    mkdir work
+    cd work
+    git clone <LINK>
+
+File im Directory abändern:
+
+    gedit readme.md
+    <ändern des files>
+    git commit -m "test merge"
+    git push
+
+Andere Person nun auf dem repo:
+
+    git status
+
+man bemerkt, dass das Repo nicht auf dem aktuellen Stand ist +
+updaten des Repos:
+
+    git pull
+
+mit diesen Command laded man alle Abänderungen in den
+Dateien des remote repos herunter.
+
+Person 2 editiert dann die Datei, commited und pusht
+
+    echo "Person 2 edit" >> readme.md
+    git commit -m "update readme.md - Person 2"
+    git push
+
+Person 1 ladet nun wieder die Abänderungen herunter
+
+    git pull
+
+nun ändern beide Personen die Datei readme.md ab. +
+beide Personen:
+
+    git add
+    git commit -m "merge test2"
+    git push
+
+bei einer Person wird der push rejected, da das Remote
+repo Änderungen beinhaltet, die noch nicht existieren. +
+Daher braucht man git stash:
+
+    git stash
+
+aufgrund des Commites kann stash nicht ausgeführt werden.
+
+IMPORTANT: vor dem commit IMMER einen pull machen
+
+Öffnen des Repos in Intelliji für einen Merge
+Mergeconflikte sind auf der Commandzeile eher schwer zu machen,
+daher sollten wir dafür einen Editor verwenden (Intelliji, VSCode)

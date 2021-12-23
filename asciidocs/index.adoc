@@ -541,4 +541,4 @@ IMPORTANT: vor dem commit IMMER einen pull machen
 
 Öffnen des Repos in Intelliji für einen Merge
 Mergeconflikte sind auf der Commandzeile eher schwer zu machen,
-daher sollten wir dafür einen Editor verwenden (Intelliji, VSCode)
+daher sollten wir dafür einen Editor verwenden (IntelliJ, VSCode)

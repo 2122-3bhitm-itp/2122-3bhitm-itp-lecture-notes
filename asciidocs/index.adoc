@@ -485,7 +485,7 @@ mithilfe von SSH keys:
 
     ssh-keygen -t rsa
 
-=== GIT  (Mitschrift Thomas Spindler)
+=== GIT (Mitschrift Thomas Spindler)
 
 neuen Ordner erstellen und erneut Klonen
 
@@ -539,6 +539,33 @@ aufgrund des Commites kann stash nicht ausgeführt werden.
 
 IMPORTANT: vor dem commit IMMER einen pull machen
 
-Öffnen des Repos in Intelliji für einen Merge
+Öffnen des Repos in IntelliJ für einen Merge
 Mergeconflikte sind auf der Commandzeile eher schwer zu machen,
 daher sollten wir dafür einen Editor verwenden (IntelliJ, VSCode)
+
+=== Git stash (Mitschrift Thomas Spindler)
+
+2 Leute klonen ein Git Repository und ändern in einem beliebigen File eine bestimmte Zeile ab. +
+Wir haben bereits gelernt, dass man die Abänderungen mergen kann, allerdings werden wir uns in dieser Übung stash verwenden.
+
+Eine der Personen push dann die Abänderungen auf das aktuelle Repository:
+
+    git commit -m "<MESSAGE>"
+    git push
+
+Hiermit haben wir einen Konflikt erstellt.
+
+Die andere Person "versteckt" nun ihre Abänderungen, mithilfe von git stash, und pullt dann die Abänderungen vom remote Repo.
+
+    git stash
+    git pull
+
+Danach hohlen wir die Abänderungen wieder zurück:
+
+    git stash pop
+
+Dann können wir ohne weitere Probleme commiten und pushen.
+
+IMPORTANT: Git pulls sollten regelmäßig und oft gemacht werden, um größere Konflikt zu verhindern. Dies kann auch in IntelliJ unter den folgenden Optionen automatisiert werden:
+
+image::IntelliJ-auto-git-pulls.jpg[]

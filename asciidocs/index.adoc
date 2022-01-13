@@ -560,7 +560,7 @@ Die andere Person "versteckt" nun ihre Abänderungen, mithilfe von git stash, un
     git stash
     git pull
 
-Danach hohlen wir die Abänderungen wieder zurück:
+Danach holen wir die Abänderungen wieder zurück:
 
     git stash pop
 
@@ -569,3 +569,140 @@ Dann können wir ohne weitere Probleme commiten und pushen.
 IMPORTANT: Git pulls sollten regelmäßig und oft gemacht werden, um größere Konflikt zu verhindern. Dies kann auch in IntelliJ unter den folgenden Optionen automatisiert werden:
 
 image::IntelliJ-auto-git-pulls.jpg[]
+
+== PlantUML (Mitschrift Thomas Spindler)
+PlantUML Diagramme sind, wenn man das Template verwendet, im plantuml Ordner.
+
+=== Umgebungen
+
+==== PlantUML in Asciidoc
+Da wir unsere Mitschriften in Asciidoc führen, zeigen wir dies gleich am Anfang. +
+Einbindung von PlantUML in Asciidoc:
+
+    [plantuml, <NAME>]
+    ----
+    @startuml
+    ...
+    @enduml
+    ----
+
+Hierbei gilt zu beachten, dass der <NAME> immer unterschiedlich sein muss. Wenn ein name doppelt verwendet wird, wird nur eines der zwei Diagramme an beiden Stellen angezeigt.
+
+Um ein externes File einzufügen, kann folgende Syntax verwendet werden:
+
+    [plantuml, <NAME>]
+    ----
+    include::plantuml/plantuml-example-1.puml[]
+    ----
+
+==== PlantUML in IntelliJ
+Das Plugin "PlantUML initgration" herunterladen und installieren. Anschließend das IDE neu starten
+
+.Installieren von IntelliJ Plugin
+image::IntelliJ-PlantUML-intigration.jpg[]
+
+=== Grundlagen
+jedes PlantUML file hat ein Start und ein Ende:
+
+    @startuml
+    start
+    ...
+    stop
+    @enduml
+
+Nachschlagwerk: https://plantuml.com[PlantUML Dokumentation]
+
+==== Sequenzen
+Eine Sequenz ist ein Teil unseres Programmes. Mithilfe von PlantUML können wird diese schnell und genau darstellen. +
+
+Beispiel für eine Sequenz in PlantUML:
+
+    @startuml
+    :Hello World;
+    @enduml
+
+wird zu:
+
+[plantuml,hello-world]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+:Hello World;
+@enduml
+----
+
+Ebenfalls kann man einer Sequenz einen Titel und eine Beschreibung geben. Hierbei ist darauf zu achten, dass im Titel keine Leerzeichen vorhanden sein dürfen.
+
+    @startuml
+    HelloWorld:This is a description
+    @enduml
+
+[plantuml,hello-world2]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+HelloWorld:This is a description
+@enduml
+----
+
+==== If-Statements
+If Statements in PlantUML darstellen:
+
+    @startuml
+    if(Paket-Gewicht) is (>10kg) then
+    :Sende mit LKW;
+    else
+    :Sende mit PKW;
+    endif
+    @enduml
+
+[plantuml,if-statement]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+start
+if(Paket-Gewicht) is (>10kg) then
+:Sende mit LKW;
+else
+:Sende mit PKW;
+endif
+stop
+@enduml
+----
+
+==== Start und Stop
+Wie bereits im Beispiel oben eingebaut, hat ein Programmablauf immer einen Anfang und ein Ende. Diese können mit den Keyworten "start" und "stop" dargestellt werden.
+
+    @startuml
+    start
+    :HelloWorld
+    stop
+    @enduml
+
+[plantuml, start-stop]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+start
+:HelloWorld;
+stop
+@enduml
+----
+
+=== Beispiel aus dem Unterricht
+Mithilfe diesen Beispieles wurde uns PlantUML erklärt:
+
+.Beispiel aus dem Unterricht:
+[plantuml,demo-cld]
+----
+@startuml
+include::plantuml/plantuml-example-1.puml[]
+----

@@ -377,7 +377,7 @@ IMPORTANT: Bei Generalisierung noch complete / incomplete und disjoint/overlappi
 
 ==== Lösung
 * Verwendet man solche Auszeichnungssprachen wie Markdown, plantuml und Asciidoctor / Asciidoc so spricht man von "doc-as-code"
-** Die Dokumentation wird nicht mit eigenen Werkzeugen (Textverarbeitung, Zeichenprogramm usw. erstellt), sonder in der IDE, in der auch die Programme erstellt werden
+** Die Dokumentation wird nicht mit eigenen Werkzeugen (Textverarbeitung, Zeichenprogramm usw. erstellt), sondern in der IDE, in der auch die Programme erstellt werden
 
 ==== Umsetzung
 
@@ -697,12 +697,124 @@ stop
 @enduml
 ----
 
-=== Beispiel aus dem Unterricht
-Mithilfe diesen Beispieles wurde uns PlantUML erklärt:
+==== Beispiel:
+Nun können wir alle oben erlernten Technologien in ein Beispiel umsetzen +
 
 .Beispiel aus dem Unterricht:
 [plantuml,demo-cld]
 ----
 @startuml
 include::plantuml/plantuml-example-1.puml[]
+----
+
+Mithilfe diesen Beispieles wurde uns PlantUML erklärt.
+
+=== Usecase - Diagramm
+Usecases können Beschreiben, wofür man ein Objekt verwenden kann. +
+Beispiel für usecases eines PKWs:
+
+    @startuml
+    usecase "transport goods"
+    usecase "transport persons"
+    @enduml
+
+[plantuml, usecases]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+usecase "transport goods"
+usecase "transport persons"
+@enduml
+----
+
+==== Actors:
+Um Personen auf Diagrammen darzustellen, kann man Actors verwenden
+
+    @startuml
+    actor "driver"
+    @enduml
+
+[plantuml, actors]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+left to right direction
+
+scale 1.3
+
+actor "driver"
+@enduml
+----
+
+==== Rectangles
+Rectagles können verwendet werden, um Darstellungen übersichtlicher zu machen
+
+    @startuml
+    rectangle PKW {
+        usecase "transport"
+    }
+    @enduml
+
+[plantuml, rectangles]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+rectangle PKW {
+    usecase "transport"
+}
+@enduml
+----
+
+==== Verlinkungen
+2 Objekte in PlantUML können mithilfe von Links miteinander verbunden werden. Dies kann mit der Syntax <OBJEKT1> -- <OBJEKT2> erzeilt werden.
+
+    @startuml
+    actor "driver" as fc
+    usecase "drives car" as UCGOODS
+    fc -- UCGOODS
+    @enduml
+
+[plantuml, links]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+left to right direction
+
+actor "driver" as fc
+usecase "drives car" as UCGOODS
+
+fc -- UCGOODS
+
+@enduml
+----
+
+=== Beispiel
+Wenn wir nun alle oben hergezeigten Sachen verwenden, bekommt man folgendes Beispiel:
+
+
+[plantuml, ucd1, png]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+left to right direction
+
+actor "driver" as fc
+rectangle PKW {
+    usecase "transports goods" as UCGOODS
+    usecase "transport persons" as UCPERSON
+    usecase "cruise" as UCCRUISE
+}
+fc -- UCGOODS
+fc -- UCPERSON
+fc -- UCCRUISE
+@enduml
 ----

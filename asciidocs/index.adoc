@@ -926,7 +926,7 @@ class B {
     e
 }
 
-B <-- A
+A <|-- B
 @enduml
 ----
 

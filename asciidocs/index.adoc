@@ -877,3 +877,66 @@ fc -- UCPERSON
 fc -- UCCRUISE
 @enduml
 ----
+
+== Arten von Mengen (Mitschrift Lydia Reiter & Thomas Spindler)+
+
+Siehe auch: UML Usecase - Diagramm
+
+image::mengen-arten.png[]
+
+== V-Modell (Mitschrift Lydia Reiter & Thomas Spindler)
+
+Das V-Modell zeigt den Vorgang von Softwareentwicklung:
+
+image::v-model.png[]
+
+== Vererbung (Mitschrift Lydia Reiter & Thomas Spindler)
+Tafelbild aus dem Unterricht:
+
+B vererbt von A
+
+image::verwendung-vererbung.png[]
+// originalBild von der Tafel? -> Lydia Angefragt
+
+Dies kann man auch in PlantUML darstellen:
+
+[plantuml, vererbung-basics]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+left to right direction
+
+scale 1.3
+
+class A {
+    c
+}
+
+class B {
+    e
+}
+
+B <-- A
+@enduml
+----
+
+B besitz daraufhin beide Eigenschaften: +
+(keine korrekte Darstellung der Klasse, nur symbolisch!)
+
+[plantuml, vererbung-basics-ex2]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+scale 1.3
+
+class B {
+    c
+    e
+}
+
+@enduml
+----

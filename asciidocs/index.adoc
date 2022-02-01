@@ -877,8 +877,13 @@ fc -- UCPERSON
 fc -- UCCRUISE
 @enduml
 ----
+== Java History (Mitschrift Lydia Reiter)
 
-== Arten von Mengen (Mitschrift Lydia Reiter & Thomas Spindler)+
+image::java-history.png[]
+
+image::java-history-tafel.jpg[Java History Tafelbild, 300]
+
+== Arten von Mengen (Mitschrift Lydia Reiter & Thomas Spindler)
 
 Siehe auch: UML Usecase - Diagramm
 
@@ -888,7 +893,9 @@ image::mengen-arten.png[]
 
 Das V-Modell zeigt den Vorgang von Softwareentwicklung:
 
-image::v-model.png[]
+image::v-model.png[V-Modell Zeichnung]
+
+image::v-modell-tafel.jpeg[V-Modell Tafel, 300]
 
 == Vererbung (Mitschrift Lydia Reiter & Thomas Spindler)
 Tafelbild aus dem Unterricht:
@@ -896,7 +903,8 @@ Tafelbild aus dem Unterricht:
 B vererbt von A
 
 image::verwendung-vererbung.png[]
-// originalBild von der Tafel? -> Lydia Angefragt
+
+image::verwendung-vererbung-tafel.jpg[Verwendung Vererbung Tafelbild, 250]
 
 Dies kann man auch in PlantUML darstellen:
 

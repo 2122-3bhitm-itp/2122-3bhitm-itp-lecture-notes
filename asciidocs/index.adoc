@@ -570,6 +570,65 @@ IMPORTANT: Git pulls sollten regelmäßig und oft gemacht werden, um größere K
 
 image::IntelliJ-auto-git-pulls.jpg[]
 
+=== Git branches (Mitschrift Thomas Spindler)
+
+Die folgenden Übungen wurden in 06-git-lab-school mit 2er Gruppen durchgeführt. +
+Die Grundlage für diese Übung ist ein Java Programm (Maven) mit folgender Struktur:
+
+[plantuml, 06-git-lab-school]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+left to right direction
+
+abstract class Person {
+    firstname
+    lastname
+}
+
+class Student {
+    matnr
+}
+
+class Teacher {
+    salary
+    title
+}
+
+Person <-- Teacher
+Person <-- Student
+@enduml
+----
+
+Für die Implementierung des Programmes werden zwei Git-Branches angelegt:
+
+    feature/teacher
+    feature/student
+
+Jedes Teammitglied geht nun in einen Branch, und implementiert dort das passende Feature passend zum Branchname aus. Dies geht mithilfe folgendem Commandos:
+
+    git checkout feature/..
+
+Nach dem Implementieren wird alles auf das remote Repository gepusht.
+
+Daraufhin wechselt der 1. Schüler in den main branch und merged das Feature in diesen.
+
+    git checkout main
+    git merge feature/teacher
+    gut push
+
+Dies wird nun für den Studenten wiederholt. +
+Danach werden beide Branches gelöscht:
+
+    git branch -d feature/teacher
+    git branch -d feature/student
+
+Die remote Branches können ganz einfach im Webinterface von Github gelöscht werden.
+
+IMPORTANT: Branches beziehen sich immer auf Features, und nicht Personen!
+
 == PlantUML (Mitschrift Thomas Spindler)
 PlantUML Diagramme sind, wenn man das Template verwendet, im plantuml Ordner.
 

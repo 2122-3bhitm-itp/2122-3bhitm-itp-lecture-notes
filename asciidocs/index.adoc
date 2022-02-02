@@ -8,6 +8,7 @@ ifndef::imagesdir[:imagesdir: images]
 :sectnums:    // Nummerierung der Überschriften / section numbering
 :toc: left
 
+
 //Need this blank line after ifdef, don't know why...
 ifdef::backend-html5[]
 
@@ -655,7 +656,7 @@ Um ein externes File einzufügen, kann folgende Syntax verwendet werden:
     ----
 
 ==== PlantUML in IntelliJ
-Das Plugin "PlantUML initgration" herunterladen und installieren. Anschließend das IDE neu starten
+Das Plugin "PlantUML integration" herunterladen und installieren. Anschließend das IDE neu starten
 
 .Installieren von IntelliJ Plugin
 image::IntelliJ-PlantUML-intigration.jpg[]
@@ -765,6 +766,67 @@ Nun können wir alle oben erlernten Technologien in ein Beispiel umsetzen +
 @startuml
 include::plantuml/plantuml-example-1.puml[]
 ----
+
+
+== 2022-01-20
+
+[plantuml,ucd1,png]
+----
+@startuml
+left to right direction
+actor "driver" as fc
+rectangle PKW {
+  usecase "transport goods" as UCGOODS
+  usecase "transport persons" as UCPERSONS
+  usecase "cruising" as UCCRUISE
+}
+fc -- UCGOODS
+fc -- UCPERSONS
+fc -- UCCRUISE
+@enduml
+----
+
+
+[plantuml,uml2,svg]
+----
+include::plantuml/ucd2.puml[]
+----
+
+
+=== Callouts
+
+[source,java]
+----
+return Response
+        .status(Response.Status.OK)  // <.>
+        .entity(bookingResource.showError(e.getMessage()))  // <.>
+        .type(MediaType.TEXT_HTML)
+        .build();
+----
+
+<.> Rückgabe des HTTP-Statuscodes
+<.> Aufrufen der showError-Methode, die eine html-error-page-rendert und zurückgibt
+
+
+=== Admonitions
+
+TIP: Lernen Sie die Fachbegriffe
+
+IMPORTANT: Damit Sie gut googeln können
+
+
+
+=== Mengen
+
+image::overlapping-disjoint.png[]
+
+
+
+
+
+
+
+
 
 Mithilfe diesen Beispieles wurde uns PlantUML erklärt.
 

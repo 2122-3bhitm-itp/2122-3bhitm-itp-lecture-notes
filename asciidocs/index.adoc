@@ -377,7 +377,7 @@ IMPORTANT: Bei Generalisierung noch complete / incomplete und disjoint/overlappi
 
 ==== Lösung
 * Verwendet man solche Auszeichnungssprachen wie Markdown, plantuml und Asciidoctor / Asciidoc so spricht man von "doc-as-code"
-** Die Dokumentation wird nicht mit eigenen Werkzeugen (Textverarbeitung, Zeichenprogramm usw. erstellt), sonder in der IDE, in der auch die Programme erstellt werden
+** Die Dokumentation wird nicht mit eigenen Werkzeugen (Textverarbeitung, Zeichenprogramm usw. erstellt), sondern in der IDE, in der auch die Programme erstellt werden
 
 ==== Umsetzung
 
@@ -570,6 +570,65 @@ IMPORTANT: Git pulls sollten regelmäßig und oft gemacht werden, um größere K
 
 image::IntelliJ-auto-git-pulls.jpg[]
 
+=== Git branches (Mitschrift Thomas Spindler)
+
+Die folgenden Übungen wurden in 06-git-lab-school mit 2er Gruppen durchgeführt. +
+Die Grundlage für diese Übung ist ein Java Programm (Maven) mit folgender Struktur:
+
+[plantuml, 06-git-lab-school]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+left to right direction
+
+abstract class Person {
+    firstname
+    lastname
+}
+
+class Student {
+    matnr
+}
+
+class Teacher {
+    salary
+    title
+}
+
+Person <-- Teacher
+Person <-- Student
+@enduml
+----
+
+Für die Implementierung des Programmes werden zwei Git-Branches angelegt:
+
+    feature/teacher
+    feature/student
+
+Jedes Teammitglied geht nun in einen Branch, und implementiert dort das passende Feature passend zum Branchname aus. Dies geht mithilfe folgendem Commandos:
+
+    git checkout feature/..
+
+Nach dem Implementieren wird alles auf das remote Repository gepusht.
+
+Daraufhin wechselt der 1. Schüler in den main branch und merged das Feature in diesen.
+
+    git checkout main
+    git merge feature/teacher
+    gut push
+
+Dies wird nun für den Studenten wiederholt. +
+Danach werden beide Branches gelöscht:
+
+    git branch -d feature/teacher
+    git branch -d feature/student
+
+Die remote Branches können ganz einfach im Webinterface von Github gelöscht werden.
+
+IMPORTANT: Branches beziehen sich immer auf Features, und nicht Personen!
+
 == PlantUML (Mitschrift Thomas Spindler)
 PlantUML Diagramme sind, wenn man das Template verwendet, im plantuml Ordner.
 
@@ -697,12 +756,195 @@ stop
 @enduml
 ----
 
-=== Beispiel aus dem Unterricht
-Mithilfe diesen Beispieles wurde uns PlantUML erklärt:
+==== Beispiel:
+Nun können wir alle oben erlernten Technologien in ein Beispiel umsetzen +
 
 .Beispiel aus dem Unterricht:
 [plantuml,demo-cld]
 ----
 @startuml
 include::plantuml/plantuml-example-1.puml[]
+----
+
+Mithilfe diesen Beispieles wurde uns PlantUML erklärt.
+
+=== Usecase - Diagramm
+Usecases können Beschreiben, wofür man ein Objekt verwenden kann. +
+Beispiel für usecases eines PKWs:
+
+    @startuml
+    usecase "transport goods"
+    usecase "transport persons"
+    @enduml
+
+[plantuml, usecases]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+usecase "transport goods"
+usecase "transport persons"
+@enduml
+----
+
+==== Actors:
+Um Personen auf Diagrammen darzustellen, kann man Actors verwenden
+
+    @startuml
+    actor "driver"
+    @enduml
+
+[plantuml, actors]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+left to right direction
+
+scale 1.3
+
+actor "driver"
+@enduml
+----
+
+==== Rectangles
+Rectagles können verwendet werden, um Darstellungen übersichtlicher zu machen
+
+    @startuml
+    rectangle PKW {
+        usecase "transport"
+    }
+    @enduml
+
+[plantuml, rectangles]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+rectangle PKW {
+    usecase "transport"
+}
+@enduml
+----
+
+==== Verlinkungen
+2 Objekte in PlantUML können mithilfe von Links miteinander verbunden werden. Dies kann mit der Syntax <OBJEKT1> -- <OBJEKT2> erzeilt werden.
+
+    @startuml
+    actor "driver" as fc
+    usecase "drives car" as UCGOODS
+    fc -- UCGOODS
+    @enduml
+
+[plantuml, links]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+left to right direction
+
+actor "driver" as fc
+usecase "drives car" as UCGOODS
+
+fc -- UCGOODS
+
+@enduml
+----
+
+=== Beispiel
+Wenn wir nun alle oben hergezeigten Sachen verwenden, bekommt man folgendes Beispiel:
+
+
+[plantuml, ucd1, png]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+left to right direction
+
+actor "driver" as fc
+rectangle PKW {
+    usecase "transports goods" as UCGOODS
+    usecase "transport persons" as UCPERSON
+    usecase "cruise" as UCCRUISE
+}
+fc -- UCGOODS
+fc -- UCPERSON
+fc -- UCCRUISE
+@enduml
+----
+== Java History (Mitschrift Lydia Reiter)
+
+image::java-history.png[]
+
+image::java-history-tafel.jpg[Java History Tafelbild, 300]
+
+== Arten von Mengen (Mitschrift Lydia Reiter & Thomas Spindler)
+
+Siehe auch: UML Usecase - Diagramm
+
+image::mengen-arten.png[]
+
+== V-Modell (Mitschrift Lydia Reiter & Thomas Spindler)
+
+Das V-Modell zeigt den Vorgang von Softwareentwicklung:
+
+image::v-model.png[V-Modell Zeichnung]
+
+image::v-modell-tafel.jpeg[V-Modell Tafel, 300]
+
+== Vererbung (Mitschrift Lydia Reiter & Thomas Spindler)
+Tafelbild aus dem Unterricht:
+
+B vererbt von A
+
+image::verwendung-vererbung.png[]
+
+image::verwendung-vererbung-tafel.jpg[Verwendung Vererbung Tafelbild, 250]
+
+Dies kann man auch in PlantUML darstellen:
+
+[plantuml, vererbung-basics]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+left to right direction
+
+scale 1.3
+
+class A {
+    c
+}
+
+class B {
+    e
+}
+
+A <|-- B
+@enduml
+----
+
+B besitz daraufhin beide Eigenschaften: +
+(keine korrekte Darstellung der Klasse, nur symbolisch!)
+
+[plantuml, vererbung-basics-ex2]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+scale 1.3
+
+class B {
+    c
+    e
+}
+
+@enduml
 ----

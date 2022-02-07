@@ -942,8 +942,8 @@ CMT1 .right. Player
 @enduml
 ----
 
-==== Beispiel:
-Nun können wir alle oben erlernten Technologien in ein Beispiel umsetzen +
+=== Beispiel aus dem Unterricht
+Mithilfe diesen Beispieles wurde uns PlantUML erklärt:
 
 .Beispiel aus dem Unterricht:
 [plantuml,demo-cld]

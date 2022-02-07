@@ -757,15 +757,205 @@ stop
 @enduml
 ----
 
+==== Kommentare
+Kommentare in PlantUML:
+
+    @startuml
+    'This is a comment
+    :HelloWorld;
+    @enduml
+
+Wie man an folgendem Beispiel sieht, wird dieser nicht angezeigt:
+
+[plantuml, comments-1]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+'This is a comment
+:HelloWorld;
+----
+
+==== Klassen
+Um Klassendiagramme in Plantuml darzustellen, sollte man Klasse dafür verwenden.
+Diese können mit folgender Syntax ausgedrückt werden:
+
+https://plantuml.com/class-diagram[offizielle Dokumentation]
+
+----
+@startuml
+
+class example {
+    +publicText: String
+    #protectedText: String
+    -privateText: String
+}
+
+@enduml
+----
+
+[plantuml, classes-1]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+class example {
+    +publicText: String
+    #protectedText: String
+    -privateText: String
+}
+
+@enduml
+----
+
+Die Sichtbarkeit kann man Mithilfe folgender Kürzel festgelegt werden:
+
+|===
+|Character | Visibility
+
+|+
+|public
+
+|-
+|private
+
+|#
+|protected
+
+|~
+|package private
+
+|===
+
+Methoden können in Klassendiagrammen ebenfalls dargestellt werden:
+
+----
+@startuml
+
+class example {
+    +publicText: String
+    #protectedText: String
+    -privateText: String
+
+    +method1()
+    -method2()
+}
+
+@enduml
+----
+
+[plantuml, classes-2]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+class example {
+    +publicText: String
+    #protectedText: String
+    -privateText: String
+
+    +method1()
+    -method2()
+}
+
+@enduml
+----
+
+Statische und Abstrakte Element einer Klasse können ebenfalls dargestellt werden:
+
+----
+@startuml
+
+class Dummy {
+  {static} String id
+  {abstract} void methods()
+}
+
+@enduml
+----
+
+[plantuml, classes-3]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+class Dummy {
+  {static} String id
+  {abstract} void methods()
+}
+@enduml
+----
+
+Die Linien zwischen Methoden und Variablen kann man auch selbst setzten. +
+Siehe https://plantuml.com/class-diagram[PlantUMLDoc]
+
+==== Notizen
+Notizen in Plantuml sind wichtig, wenn man teile des Diagrams kommentieren möchte, dies allerdings im finalen
+Diagramm enthalten sein sollte.
+
+----
+@startuml
+note "Das ist ein Kommentar" as CMT1<.>
+@enduml
+----
+<.> Mithilfe des Wortes as kann man dieser Notiz einen Namen geben.
+
+Dies sieht dann wie folgt aus:
+
+[plantuml, note-1]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+note "Das ist ein Kommentar" as CMT1
+@enduml
+----
+
+Kommentare können aber zu Elementen hinzugefügt werden, da diese sonst einfach
+nur am Anfang der Zeichnung stehen.
+
+----
+@startuml
+class Player
+
+note "Das ist ein Kommentar" as CMT1
+CMT1 .right. Player <.>
+@enduml
+----
+<.> Mit dem right geben wir an, dass der Kommentar rechts mit der Klasse Player verbunden ist.
+
+[plantuml, note-2]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+note "Das ist ein Kommentar" as CMT1
+
+CMT1 .right. Player
+
+@enduml
+----
+
 ==== Beispiel:
 Nun können wir alle oben erlernten Technologien in ein Beispiel umsetzen +
 
 .Beispiel aus dem Unterricht:
 [plantuml,demo-cld]
 ----
-@startuml
 include::plantuml/plantuml-example-1.puml[]
 ----
+
+[plantuml, tennis-cld]
+----
+include::plantuml/cld-tennis.puml[]
+----
+.Beispiel Tennis (aus dem Unterricht)
 
 
 == 2022-01-20

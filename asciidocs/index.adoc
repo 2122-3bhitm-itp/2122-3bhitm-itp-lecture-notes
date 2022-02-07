@@ -74,15 +74,13 @@ Prof. Aberger anwesend
 
 === Linux-Shell commands
 
-
-
-* https://medium.com/@js_debugger/how-to-install-firefox-developer-edition-on-ubuntu-1c7f5f2b6883[How to Install Firefox Developer Edition on Ubuntu, window="_blank"]
+* https://medium.com/@js_debugger/how-to-install-firefox-developer-edition-on-ubuntu-1c7f5f2b6883[How to Install Firefox Developer Edition on Ubuntu,window="_blank"]
 
 === Docker Einführung
 
-* siehe https://htl-leonding-college.github.io/docker-lecture-notes/docker.html[Technology Notes, window="_blank"]
+* siehe https://htl-leonding-college.github.io/docker-lecture-notes/docker.html[Technology Notes,window="_blank"]
 
-* https://docs.docker.com/engine/install/ubuntu/[Installation von Docker, window="_blank"]
+* https://docs.docker.com/engine/install/ubuntu/[Installation von Docker,window="_blank"]
 
 .Eintragen des docker-Users in die docker-group
 [source,bash]
@@ -110,6 +108,7 @@ Prof. Aberger anwesend
 * Projektauftrag (project order)
 
 === Projektziele
+
 image::magisches-dreieck.png[]
 
 * Kann durch Qualität erweitert werden.
@@ -118,12 +117,10 @@ image::magisches-dreieck.png[]
 
 === Prof. Aberger: gh-actions
 
-
 == 2021-10-21
 
 * Linuxe repariert
 * abgegebene Projektanträge besprochen
-
 
 == 2021-11-09 (Prof. Aberger)
 
@@ -159,8 +156,9 @@ oder
 * dann einfach explorer eingeben
 
 ==== Installation von maven
+
 * downloaden https://maven.apache.org/download.cgi (entweder .tar.gz oder .zip)
-* in  opt-Verzeichnis kopieren
+* in opt-Verzeichnis kopieren
 
 .Verschieben ins opr-verzeichnis
 ----
@@ -176,7 +174,6 @@ sudo tar -xzf apache-maven-3.8.3-bin.tar.gz
 ----
 mv apache-maven-3.8.3 maven
 ----
-
 
 ----
  cat maven-env.sh
@@ -218,7 +215,6 @@ export PATH=$MAVEN_HOME/bin:$PATH
 mvn clean package
 ----
 
-
 == 2021-11-11
 
 === Reverse Engineering
@@ -248,7 +244,6 @@ image::reverse-engineering.png[]
 
 |===
 
-
 == 2021-11-16 Maven Fortsetzung
 
 === Multimodule
@@ -260,7 +255,6 @@ image::packages.png[]
 === Semantische Versionierung
 
 https://semver.org/lang/de/
-
 
 * z.B 5.3.2
 ** 5 -> Major-Version
@@ -275,7 +269,6 @@ Auf Grundlage einer Versionsnummer von MAJOR.MINOR.PATCH werden die einzelnen El
 
 Außerdem sind Bezeichner für Vorveröffentlichungen und Build-Metadaten als Erweiterungen zum MAJOR.MINOR.PATCH Format verfügbar.
 
-
 === XML
 
 * Extensible Markup Language
@@ -288,9 +281,6 @@ Außerdem sind Bezeichner für Vorveröffentlichungen und Build-Metadaten als Er
 
 * ist deklarativ (nicht imparativ)
 * Das Projektergebnis wird beschrieben und nicht der Weg dorthin.
-
-
-
 
 == 2021-11-18
 
@@ -317,6 +307,9 @@ Person "1" <--- "0..*" Haustier : besitzt >
 @enduml
 ----
 
+* wichtige Seiten im kapitel_3_1_Klassendiagramm.pdf
+** 1,2,3,6,8,9,10,11,14,16,24,29,33,35,54,60,61,71,72,73,74,79,80,81,83,84,91,92,93,94,95,97
+
 == Notationen
 
 |===
@@ -335,12 +328,9 @@ Person "1" <--- "0..*" Haustier : besitzt >
 |network-controller
 |===
 
-
 == 2021-12-07
 
-
-* https://htl-leonding-college.github.io/git-lecture-notes/[Git-Grundlagen, window="_blank"]
-
+* https://htl-leonding-college.github.io/git-lecture-notes/[Git-Grundlagen,window="_blank"]
 
 == 2021-12-09 (Donnerstag)
 
@@ -358,11 +348,9 @@ Segler(...)
 
 IMPORTANT: Bei Generalisierung noch complete / incomplete und disjoint/overlapping besprechen
 
-
 === Buch Kapitel 2: Projektbegründung wiederholt
 
 === Buch Kapitel 3: Projektorganisation fertig
-
 
 == 2021-12-16
 
@@ -377,11 +365,11 @@ IMPORTANT: Bei Generalisierung noch complete / incomplete und disjoint/overlappi
 ** auch sollte die Dokumentation von Softwaresystemen direkt aus dem Code generiert werden
 
 ==== Lösung
+
 * Verwendet man solche Auszeichnungssprachen wie Markdown, plantuml und Asciidoctor / Asciidoc so spricht man von "doc-as-code"
 ** Die Dokumentation wird nicht mit eigenen Werkzeugen (Textverarbeitung, Zeichenprogramm usw. erstellt), sondern in der IDE, in der auch die Programme erstellt werden
 
 ==== Umsetzung
-
 
 ===== Markdown
 
@@ -393,7 +381,6 @@ IMPORTANT: Bei Generalisierung noch complete / incomplete und disjoint/overlappi
 
 * Vorteile:
 ** beschränkte Möglichkeiten -> daher nicht so schwer zu lernen
-
 
 ===== Asciidoctor
 
@@ -413,7 +400,6 @@ IMPORTANT: Bei Generalisierung noch complete / incomplete und disjoint/overlappi
 ** für das Deployment verwendet man
 *** entweder Docker
 *** oder github-actions
-
 
 == 2021-12-21
 
@@ -478,8 +464,6 @@ IMPORTANT: Bei Generalisierung noch complete / incomplete und disjoint/overlappi
   796  git push
 ----
 
-
-
 === Github Keygen (Mitschrift Thomas Spindler)
 
 mithilfe von SSH keys:
@@ -510,8 +494,7 @@ updaten des Repos:
 
     git pull
 
-mit diesen Command laded man alle Abänderungen in den
-Dateien des remote repos herunter.
+mit diesen Command laded man alle Abänderungen in den Dateien des remote repos herunter.
 
 Person 2 editiert dann die Datei, commited und pusht
 
@@ -530,8 +513,7 @@ beide Personen:
     git commit -m "merge test2"
     git push
 
-bei einer Person wird der push rejected, da das Remote
-repo Änderungen beinhaltet, die noch nicht existieren. +
+bei einer Person wird der push rejected, da das Remote repo Änderungen beinhaltet, die noch nicht existieren. +
 Daher braucht man git stash:
 
     git stash
@@ -540,9 +522,7 @@ aufgrund des Commites kann stash nicht ausgeführt werden.
 
 IMPORTANT: vor dem commit IMMER einen pull machen
 
-Öffnen des Repos in IntelliJ für einen Merge
-Mergeconflikte sind auf der Commandzeile eher schwer zu machen,
-daher sollten wir dafür einen Editor verwenden (IntelliJ, VSCode)
+Öffnen des Repos in IntelliJ für einen Merge Mergeconflikte sind auf der Commandzeile eher schwer zu machen, daher sollten wir dafür einen Editor verwenden (IntelliJ, VSCode)
 
 === Git stash (Mitschrift Thomas Spindler)
 
@@ -567,7 +547,8 @@ Danach holen wir die Abänderungen wieder zurück:
 
 Dann können wir ohne weitere Probleme commiten und pushen.
 
-IMPORTANT: Git pulls sollten regelmäßig und oft gemacht werden, um größere Konflikt zu verhindern. Dies kann auch in IntelliJ unter den folgenden Optionen automatisiert werden:
+IMPORTANT: Git pulls sollten regelmäßig und oft gemacht werden, um größere Konflikt zu verhindern.
+Dies kann auch in IntelliJ unter den folgenden Optionen automatisiert werden:
 
 image::IntelliJ-auto-git-pulls.jpg[]
 
@@ -576,7 +557,7 @@ image::IntelliJ-auto-git-pulls.jpg[]
 Die folgenden Übungen wurden in 06-git-lab-school mit 2er Gruppen durchgeführt. +
 Die Grundlage für diese Übung ist ein Java Programm (Maven) mit folgender Struktur:
 
-[plantuml, 06-git-lab-school]
+[plantuml,06-git-lab-school]
 ----
 @startuml
 skinparam backgroundColor transparent
@@ -608,7 +589,8 @@ Für die Implementierung des Programmes werden zwei Git-Branches angelegt:
     feature/teacher
     feature/student
 
-Jedes Teammitglied geht nun in einen Branch, und implementiert dort das passende Feature passend zum Branchname aus. Dies geht mithilfe folgendem Commandos:
+Jedes Teammitglied geht nun in einen Branch, und implementiert dort das passende Feature passend zum Branchname aus.
+Dies geht mithilfe folgendem Commandos:
 
     git checkout feature/..
 
@@ -631,11 +613,13 @@ Die remote Branches können ganz einfach im Webinterface von Github gelöscht we
 IMPORTANT: Branches beziehen sich immer auf Features, und nicht Personen!
 
 == PlantUML (Mitschrift Thomas Spindler)
+
 PlantUML Diagramme sind, wenn man das Template verwendet, im plantuml Ordner.
 
 === Umgebungen
 
 ==== PlantUML in Asciidoc
+
 Da wir unsere Mitschriften in Asciidoc führen, zeigen wir dies gleich am Anfang. +
 Einbindung von PlantUML in Asciidoc:
 
@@ -646,7 +630,8 @@ Einbindung von PlantUML in Asciidoc:
     @enduml
     ----
 
-Hierbei gilt zu beachten, dass der <NAME> immer unterschiedlich sein muss. Wenn ein name doppelt verwendet wird, wird nur eines der zwei Diagramme an beiden Stellen angezeigt.
+Hierbei gilt zu beachten, dass der <NAME> immer unterschiedlich sein muss.
+Wenn ein name doppelt verwendet wird, wird nur eines der zwei Diagramme an beiden Stellen angezeigt.
 
 Um ein externes File einzufügen, kann folgende Syntax verwendet werden:
 
@@ -656,12 +641,15 @@ Um ein externes File einzufügen, kann folgende Syntax verwendet werden:
     ----
 
 ==== PlantUML in IntelliJ
-Das Plugin "PlantUML integration" herunterladen und installieren. Anschließend das IDE neu starten
+
+Das Plugin "PlantUML integration" herunterladen und installieren.
+Anschließend das IDE neu starten
 
 .Installieren von IntelliJ Plugin
 image::IntelliJ-PlantUML-intigration.jpg[]
 
 === Grundlagen
+
 jedes PlantUML file hat ein Start und ein Ende:
 
     @startuml
@@ -673,7 +661,9 @@ jedes PlantUML file hat ein Start und ein Ende:
 Nachschlagwerk: https://plantuml.com[PlantUML Dokumentation]
 
 ==== Sequenzen
-Eine Sequenz ist ein Teil unseres Programmes. Mithilfe von PlantUML können wird diese schnell und genau darstellen. +
+
+Eine Sequenz ist ein Teil unseres Programmes.
+Mithilfe von PlantUML können wird diese schnell und genau darstellen. +
 
 Beispiel für eine Sequenz in PlantUML:
 
@@ -693,7 +683,8 @@ skinparam shadowing false
 @enduml
 ----
 
-Ebenfalls kann man einer Sequenz einen Titel und eine Beschreibung geben. Hierbei ist darauf zu achten, dass im Titel keine Leerzeichen vorhanden sein dürfen.
+Ebenfalls kann man einer Sequenz einen Titel und eine Beschreibung geben.
+Hierbei ist darauf zu achten, dass im Titel keine Leerzeichen vorhanden sein dürfen.
 
     @startuml
     HelloWorld:This is a description
@@ -710,6 +701,7 @@ HelloWorld:This is a description
 ----
 
 ==== If-Statements
+
 If Statements in PlantUML darstellen:
 
     @startuml
@@ -737,7 +729,9 @@ stop
 ----
 
 ==== Start und Stop
-Wie bereits im Beispiel oben eingebaut, hat ein Programmablauf immer einen Anfang und ein Ende. Diese können mit den Keyworten "start" und "stop" dargestellt werden.
+
+Wie bereits im Beispiel oben eingebaut, hat ein Programmablauf immer einen Anfang und ein Ende.
+Diese können mit den Keyworten "start" und "stop" dargestellt werden.
 
     @startuml
     start
@@ -745,7 +739,7 @@ Wie bereits im Beispiel oben eingebaut, hat ein Programmablauf immer einen Anfan
     stop
     @enduml
 
-[plantuml, start-stop]
+[plantuml,start-stop]
 ----
 @startuml
 skinparam backgroundColor transparent
@@ -758,6 +752,7 @@ stop
 ----
 
 ==== Kommentare
+
 Kommentare in PlantUML:
 
     @startuml
@@ -767,7 +762,7 @@ Kommentare in PlantUML:
 
 Wie man an folgendem Beispiel sieht, wird dieser nicht angezeigt:
 
-[plantuml, comments-1]
+[plantuml,comments-1]
 ----
 @startuml
 skinparam backgroundColor transparent
@@ -778,6 +773,7 @@ skinparam shadowing false
 ----
 
 ==== Klassen
+
 Um Klassendiagramme in Plantuml darzustellen, sollte man Klasse dafür verwenden.
 Diese können mit folgender Syntax ausgedrückt werden:
 
@@ -795,7 +791,7 @@ class example {
 @enduml
 ----
 
-[plantuml, classes-1]
+[plantuml,classes-1]
 ----
 @startuml
 skinparam backgroundColor transparent
@@ -846,7 +842,7 @@ class example {
 @enduml
 ----
 
-[plantuml, classes-2]
+[plantuml,classes-2]
 ----
 @startuml
 skinparam backgroundColor transparent
@@ -877,7 +873,7 @@ class Dummy {
 @enduml
 ----
 
-[plantuml, classes-3]
+[plantuml,classes-3]
 ----
 @startuml
 skinparam backgroundColor transparent
@@ -894,19 +890,20 @@ Die Linien zwischen Methoden und Variablen kann man auch selbst setzten. +
 Siehe https://plantuml.com/class-diagram[PlantUMLDoc]
 
 ==== Notizen
-Notizen in Plantuml sind wichtig, wenn man teile des Diagrams kommentieren möchte, dies allerdings im finalen
-Diagramm enthalten sein sollte.
+
+Notizen in Plantuml sind wichtig, wenn man teile des Diagrams kommentieren möchte, dies allerdings im finalen Diagramm enthalten sein sollte.
 
 ----
 @startuml
 note "Das ist ein Kommentar" as CMT1<.>
 @enduml
 ----
+
 <.> Mithilfe des Wortes as kann man dieser Notiz einen Namen geben.
 
 Dies sieht dann wie folgt aus:
 
-[plantuml, note-1]
+[plantuml,note-1]
 ----
 @startuml
 skinparam backgroundColor transparent
@@ -916,8 +913,7 @@ note "Das ist ein Kommentar" as CMT1
 @enduml
 ----
 
-Kommentare können aber zu Elementen hinzugefügt werden, da diese sonst einfach
-nur am Anfang der Zeichnung stehen.
+Kommentare können aber zu Elementen hinzugefügt werden, da diese sonst einfach nur am Anfang der Zeichnung stehen.
 
 ----
 @startuml
@@ -927,9 +923,10 @@ note "Das ist ein Kommentar" as CMT1
 CMT1 .right. Player <.>
 @enduml
 ----
+
 <.> Mit dem right geben wir an, dass der Kommentar rechts mit der Klasse Player verbunden ist.
 
-[plantuml, note-2]
+[plantuml,note-2]
 ----
 @startuml
 skinparam backgroundColor transparent
@@ -943,6 +940,7 @@ CMT1 .right. Player
 ----
 
 === Beispiel aus dem Unterricht
+
 Mithilfe diesen Beispieles wurde uns PlantUML erklärt:
 
 .Beispiel aus dem Unterricht:
@@ -951,13 +949,12 @@ Mithilfe diesen Beispieles wurde uns PlantUML erklärt:
 include::plantuml/plantuml-example-1.puml[]
 ----
 
-[plantuml, tennis-cld]
+[plantuml,tennis-cld]
 ----
 include::plantuml/cld-tennis.puml[]
 ----
+
 .Beispiel Tennis (aus dem Unterricht)
-
-
 == 2022-01-20
 
 [plantuml,ucd1,png]
@@ -976,12 +973,10 @@ fc -- UCCRUISE
 @enduml
 ----
 
-
 [plantuml,uml2,svg]
 ----
 include::plantuml/ucd2.puml[]
 ----
-
 
 === Callouts
 
@@ -997,30 +992,20 @@ return Response
 <.> Rückgabe des HTTP-Statuscodes
 <.> Aufrufen der showError-Methode, die eine html-error-page-rendert und zurückgibt
 
-
 === Admonitions
 
 TIP: Lernen Sie die Fachbegriffe
 
 IMPORTANT: Damit Sie gut googeln können
 
-
-
 === Mengen
 
 image::overlapping-disjoint.png[]
 
-
-
-
-
-
-
-
-
 Mithilfe diesen Beispieles wurde uns PlantUML erklärt.
 
 === Usecase - Diagramm
+
 Usecases können Beschreiben, wofür man ein Objekt verwenden kann. +
 Beispiel für usecases eines PKWs:
 
@@ -1029,7 +1014,7 @@ Beispiel für usecases eines PKWs:
     usecase "transport persons"
     @enduml
 
-[plantuml, usecases]
+[plantuml,usecases]
 ----
 @startuml
 skinparam backgroundColor transparent
@@ -1041,13 +1026,14 @@ usecase "transport persons"
 ----
 
 ==== Actors:
+
 Um Personen auf Diagrammen darzustellen, kann man Actors verwenden
 
     @startuml
     actor "driver"
     @enduml
 
-[plantuml, actors]
+[plantuml,actors]
 ----
 @startuml
 skinparam backgroundColor transparent
@@ -1061,6 +1047,7 @@ actor "driver"
 ----
 
 ==== Rectangles
+
 Rectagles können verwendet werden, um Darstellungen übersichtlicher zu machen
 
     @startuml
@@ -1069,7 +1056,7 @@ Rectagles können verwendet werden, um Darstellungen übersichtlicher zu machen
     }
     @enduml
 
-[plantuml, rectangles]
+[plantuml,rectangles]
 ----
 @startuml
 skinparam backgroundColor transparent
@@ -1082,7 +1069,9 @@ rectangle PKW {
 ----
 
 ==== Verlinkungen
-2 Objekte in PlantUML können mithilfe von Links miteinander verbunden werden. Dies kann mit der Syntax <OBJEKT1> -- <OBJEKT2> erzeilt werden.
+
+2 Objekte in PlantUML können mithilfe von Links miteinander verbunden werden.
+Dies kann mit der Syntax <OBJEKT1> -- <OBJEKT2> erzeilt werden.
 
     @startuml
     actor "driver" as fc
@@ -1090,7 +1079,7 @@ rectangle PKW {
     fc -- UCGOODS
     @enduml
 
-[plantuml, links]
+[plantuml,links]
 ----
 @startuml
 skinparam backgroundColor transparent
@@ -1107,10 +1096,10 @@ fc -- UCGOODS
 ----
 
 === Beispiel
+
 Wenn wir nun alle oben hergezeigten Sachen verwenden, bekommt man folgendes Beispiel:
 
-
-[plantuml, ucd1, png]
+[plantuml,ucd1,png]
 ----
 @startuml
 skinparam backgroundColor transparent
@@ -1129,11 +1118,12 @@ fc -- UCPERSON
 fc -- UCCRUISE
 @enduml
 ----
+
 == Java History (Mitschrift Lydia Reiter)
 
 image::java-history.png[]
 
-image::java-history-tafel.jpg[Java History Tafelbild, 300]
+image::java-history-tafel.jpg[Java History Tafelbild,300]
 
 == Arten von Mengen (Mitschrift Lydia Reiter & Thomas Spindler)
 
@@ -1147,20 +1137,21 @@ Das V-Modell zeigt den Vorgang von Softwareentwicklung:
 
 image::v-model.png[V-Modell Zeichnung]
 
-image::v-modell-tafel.jpeg[V-Modell Tafel, 300]
+image::v-modell-tafel.jpeg[V-Modell Tafel,300]
 
 == Vererbung (Mitschrift Lydia Reiter & Thomas Spindler)
+
 Tafelbild aus dem Unterricht:
 
 B vererbt von A
 
 image::verwendung-vererbung.png[]
 
-image::verwendung-vererbung-tafel.jpg[Verwendung Vererbung Tafelbild, 250]
+image::verwendung-vererbung-tafel.jpg[Verwendung Vererbung Tafelbild,250]
 
 Dies kann man auch in PlantUML darstellen:
 
-[plantuml, vererbung-basics]
+[plantuml,vererbung-basics]
 ----
 @startuml
 skinparam backgroundColor transparent
@@ -1185,7 +1176,7 @@ A <|-- B
 B besitz daraufhin beide Eigenschaften: +
 (keine korrekte Darstellung der Klasse, nur symbolisch!)
 
-[plantuml, vererbung-basics-ex2]
+[plantuml,vererbung-basics-ex2]
 ----
 @startuml
 skinparam backgroundColor transparent

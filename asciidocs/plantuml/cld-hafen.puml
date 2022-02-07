@@ -1,0 +1,26 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+left to right direction
+
+class Besitzer
+
+class Yacht
+
+class Liegeplatz {
+       +gebühr: double
+}
+
+class Belegung {
+    +yachtid: Yacht
+    +platzid: Liegeplatz
+    +von: date
+    +bis: date
+    +bezahlt: boolean
+}
+
+Yacht "*" --> "1" Besitzer
+Yacht "*" -- "*" Liegeplatz
+(Yacht, Liegeplatz) .. Belegung
+@enduml

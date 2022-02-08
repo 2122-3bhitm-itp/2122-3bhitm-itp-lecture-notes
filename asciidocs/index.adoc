@@ -74,15 +74,13 @@ Prof. Aberger anwesend
 
 === Linux-Shell commands
 
-
-
-* https://medium.com/@js_debugger/how-to-install-firefox-developer-edition-on-ubuntu-1c7f5f2b6883[How to Install Firefox Developer Edition on Ubuntu, window="_blank"]
+* https://medium.com/@js_debugger/how-to-install-firefox-developer-edition-on-ubuntu-1c7f5f2b6883[How to Install Firefox Developer Edition on Ubuntu,window="_blank"]
 
 === Docker Einführung
 
-* siehe https://htl-leonding-college.github.io/docker-lecture-notes/docker.html[Technology Notes, window="_blank"]
+* siehe https://htl-leonding-college.github.io/docker-lecture-notes/docker.html[Technology Notes,window="_blank"]
 
-* https://docs.docker.com/engine/install/ubuntu/[Installation von Docker, window="_blank"]
+* https://docs.docker.com/engine/install/ubuntu/[Installation von Docker,window="_blank"]
 
 .Eintragen des docker-Users in die docker-group
 [source,bash]
@@ -121,7 +119,7 @@ image::magisches-dreieck.png[]
 
 == 2021-10-21
 
-* Linuxe repariert
+* Linux repariert
 * abgegebene Projektanträge besprochen
 
 
@@ -160,7 +158,7 @@ oder
 
 ==== Installation von maven
 * downloaden https://maven.apache.org/download.cgi (entweder .tar.gz oder .zip)
-* in  opt-Verzeichnis kopieren
+* in opt-Verzeichnis kopieren
 
 .Verschieben ins opr-verzeichnis
 ----
@@ -338,8 +336,7 @@ Person "1" <--- "0..*" Haustier : besitzt >
 
 == 2021-12-07
 
-
-* https://htl-leonding-college.github.io/git-lecture-notes/[Git-Grundlagen, window="_blank"]
+* https://htl-leonding-college.github.io/git-lecture-notes/[Git-Grundlagen,window="_blank"]
 
 
 == 2021-12-09 (Donnerstag)
@@ -478,8 +475,6 @@ IMPORTANT: Bei Generalisierung noch complete / incomplete und disjoint/overlappi
   796  git push
 ----
 
-
-
 === Github Keygen (Mitschrift Thomas Spindler)
 
 mithilfe von SSH keys:
@@ -510,8 +505,7 @@ updaten des Repos:
 
     git pull
 
-mit diesen Command laded man alle Abänderungen in den
-Dateien des remote repos herunter.
+mit diesen Command laded man alle Abänderungen in den Dateien des remote repos herunter.
 
 Person 2 editiert dann die Datei, commited und pusht
 
@@ -576,7 +570,7 @@ image::IntelliJ-auto-git-pulls.jpg[]
 Die folgenden Übungen wurden in 06-git-lab-school mit 2er Gruppen durchgeführt. +
 Die Grundlage für diese Übung ist ein Java Programm (Maven) mit folgender Struktur:
 
-[plantuml, 06-git-lab-school]
+[plantuml,06-git-lab-school]
 ----
 @startuml
 skinparam backgroundColor transparent
@@ -757,78 +751,286 @@ stop
 @enduml
 ----
 
-==== Beispiel:
-Nun können wir alle oben erlernten Technologien in ein Beispiel umsetzen +
+==== Kommentare
+Kommentare in PlantUML:
+
+    @startuml
+    'This is a comment
+    :HelloWorld;
+    @enduml
+
+Wie man an folgendem Beispiel sieht, wird dieser nicht angezeigt:
+
+[plantuml, comments-1]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+'This is a comment
+:HelloWorld;
+----
+
+==== Klassen
+Um Klassendiagramme in Plantuml darzustellen, sollte man Klasse dafür verwenden.
+Diese können mit folgender Syntax ausgedrückt werden:
+
+https://plantuml.com/class-diagram[offizielle Dokumentation]
+
+----
+@startuml
+
+class example {
+    +publicText: String
+    #protectedText: String
+    -privateText: String
+}
+
+@enduml
+----
+
+[plantuml, classes-1]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+class example {
+    +publicText: String
+    #protectedText: String
+    -privateText: String
+}
+
+@enduml
+----
+
+Die Sichtbarkeit kann man Mithilfe folgender Kürzel festgelegt werden:
+
+|===
+|Character | Visibility
+
+|+
+|public
+
+|-
+|private
+
+|#
+|protected
+
+|~
+|package private
+
+|===
+
+Methoden können in Klassendiagrammen ebenfalls dargestellt werden:
+
+----
+@startuml
+
+class example {
+    +publicText: String
+    #protectedText: String
+    -privateText: String
+
+    +method1()
+    -method2()
+}
+
+@enduml
+----
+
+[plantuml, classes-2]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+class example {
+    +publicText: String
+    #protectedText: String
+    -privateText: String
+
+    +method1()
+    -method2()
+}
+
+@enduml
+----
+
+Statische und Abstrakte Element einer Klasse können ebenfalls dargestellt werden:
+
+----
+@startuml
+
+class Dummy {
+  {static} String id
+  {abstract} void methods()
+}
+
+@enduml
+----
+
+[plantuml, classes-3]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+class Dummy {
+  {static} String id
+  {abstract} void methods()
+}
+@enduml
+----
+
+Die Linien zwischen Methoden und Variablen kann man auch selbst setzten. +
+Siehe https://plantuml.com/class-diagram[PlantUMLDoc]
+
+==== Notizen
+Notizen in Plantuml sind wichtig, wenn man teile des Diagrams kommentieren möchte, dies allerdings im finalen
+Diagramm enthalten sein sollte.
+
+----
+@startuml
+note "Das ist ein Kommentar" as CMT1<.>
+@enduml
+----
+<.> Mithilfe des Wortes as kann man dieser Notiz einen Namen geben.
+
+Dies sieht dann wie folgt aus:
+
+[plantuml, note-1]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+note "Das ist ein Kommentar" as CMT1
+@enduml
+----
+
+Kommentare können aber zu Elementen hinzugefügt werden, da diese sonst einfach
+nur am Anfang der Zeichnung stehen.
+
+----
+@startuml
+class Player
+
+note "Das ist ein Kommentar" as CMT1
+CMT1 .right. Player <.>
+@enduml
+----
+<.> Mit dem right geben wir an, dass der Kommentar rechts mit der Klasse Player verbunden ist.
+
+[plantuml, note-2]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+note "Das ist ein Kommentar" as CMT1
+
+CMT1 .right. Player
+
+@enduml
+----
+
+=== Klassendiagramme
+
+Nun können wir das gelernte Wissen anwenden und ein Klassendiagramm gestalten.
+
+Dazu legen wir zu als erstes alle Klassen an, die wir benötigen:
+
+----
+@startuml
+
+class Match
+
+class Player {
+    -player1: Player
+    -player2: Player
+    -score1: int
+    -score2: int
+    -court: Court
+}
+
+class Booking
+
+class Court
+
+@enduml
+----
+
+Dies sieht dann wie folgt aus:
+
+[plantuml, class-cld1]
+----
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+class Match
+
+class Player {
+    -player1: Player
+    -player2: Player
+    -score1: int
+    -score2: int
+    -court: Court
+}
+
+class Booking
+
+class Court
+
+@enduml
+----
+
+Nun fügen wir die Pfeile (Assoziationen) zwischen den Klassen dazu:
+
+----
+@startuml
+
+left to right direction <.>
+
+class Match
+class Booking
+class Player {
+    -player1: Player
+    -player2: Player
+    -score1: int
+    -score2: int
+    -court: Court
+}
+
+Player "*" -- "*" Court
+(Player, Court) .. Booking
+
+Match "*" --> "1" Player : Player1 >
+Match "*" --> "1" Player : Player2 >
+
+Match --> Court
+
+@enduml
+----
+<.> Angabe, dass das Diagramm von links nach rechts gezeichnet werden sollte.
+
+[plantuml, class-cld2]
+----
+include::plantuml/cld-tennis.puml[]
+----
+
+=== Beispiel aus dem Unterricht
+Mithilfe diesen Beispieles wurde uns PlantUML erklärt:
 
 .Beispiel aus dem Unterricht:
 [plantuml,demo-cld]
 ----
-@startuml
 include::plantuml/plantuml-example-1.puml[]
 ----
 
-
-== 2022-01-20
-
-[plantuml,ucd1,png]
-----
-@startuml
-left to right direction
-actor "driver" as fc
-rectangle PKW {
-  usecase "transport goods" as UCGOODS
-  usecase "transport persons" as UCPERSONS
-  usecase "cruising" as UCCRUISE
-}
-fc -- UCGOODS
-fc -- UCPERSONS
-fc -- UCCRUISE
-@enduml
-----
-
-
-[plantuml,uml2,svg]
-----
-include::plantuml/ucd2.puml[]
-----
-
-
-=== Callouts
-
-[source,java]
-----
-return Response
-        .status(Response.Status.OK)  // <.>
-        .entity(bookingResource.showError(e.getMessage()))  // <.>
-        .type(MediaType.TEXT_HTML)
-        .build();
-----
-
-<.> Rückgabe des HTTP-Statuscodes
-<.> Aufrufen der showError-Methode, die eine html-error-page-rendert und zurückgibt
-
-
-=== Admonitions
-
-TIP: Lernen Sie die Fachbegriffe
-
-IMPORTANT: Damit Sie gut googeln können
-
-
-
-=== Mengen
-
-image::overlapping-disjoint.png[]
-
-
-
-
-
-
-
-
-
-Mithilfe diesen Beispieles wurde uns PlantUML erklärt.
+Mithilfe dieses Beispiels wurde uns PlantUML erklärt.
 
 === Usecase - Diagramm
 Usecases können Beschreiben, wofür man ein Objekt verwenden kann. +
@@ -1010,3 +1212,79 @@ class B {
 
 @enduml
 ----
+
+== 2022-01-20
+
+=== Mengen
+
+image::overlapping-disjoint.png[]
+
+=== Admonitions
+
+TIP: Lernen Sie die Fachbegriffe
+
+IMPORTANT: Damit Sie gut googeln können
+
+=== Callouts
+
+[source,java]
+----
+return Response
+        .status(Response.Status.OK)  // <.>
+        .entity(bookingResource.showError(e.getMessage()))  // <.>
+        .type(MediaType.TEXT_HTML)
+        .build();
+----
+
+<.> Rückgabe des HTTP-Statuscodes
+<.> Aufrufen der showError-Methode, die eine html-error-page-rendert und zurückgibt
+
+== Klassendiagramm Hafen (Mitschrift Moritz Eder)
+
+[plantuml, cld-hafen]
+----
+include::plantuml/cld-hafen.puml[]
+----
+
+image::tafelbild-hafen.png[Verwendung Vererbung Tafelbild,300]
+
+== Anwendungsfalldiagramm (Mitschrift Moritz Eder)
+
+Der Anwendungsfall ist die Schnittstelle zum
+Kunden und der Grund warum man die Software kauft.
+
+Anwendungsfälle beim Auto:
+
+* Transport von Personen
+* Transport von Gütern
+* aus prestige Gründen (Angeberei)
+
+IMPORTANT: Scheibenwischer sind nicht funktional
+
+* wichtige Seiten im kapitel_3_2_Anwendungsfalldiag.pdf
+
+IMPORTANT: 2, 3, 4, 7, 8, 13, 17, 19, 20, 22
+
+
+== Zustandsmaschinen (Mitschrift Moritz Eder)
+
+Ein Thermostat ist ein gutes Beispiel für eine Zustandsmaschine. (siehe Seite
+
+Zustände Flugzeugbetrieb:
+
+* flugbereit
+* in Wartung
+* ausgeschieden
+
+Zustände Rechnung:
+
+* offen
+* bezahlt
+* Mahnung1,
+* Mahnung2
+* …
+* uneinbringlich
+
+* wichtige Seiten im kapitel_3_3_Zustandsmaschinen.pdf
+
+IMPORTANT: 6, 7, 17, 27, 28, 45, 51

@@ -1094,7 +1094,7 @@ rectangle PKW {
 ----
 
 ==== Verlinkungen
-2 Objekte in PlantUML können mithilfe von Links miteinander verbunden werden. Dies kann mit der Syntax <OBJEKT1> -- <OBJEKT2> erzeilt werden.
+2 Objekte in PlantUML können mithilfe von Links miteinander verbunden werden. Dies kann mit der Syntax `<OBJEKT1> -- <OBJEKT2>` erzielt werden.
 
     @startuml
     actor "driver" as fc
@@ -1289,9 +1289,12 @@ Zustände Rechnung:
 
 IMPORTANT: 6, 7, 17, 27, 28, 45, 51
 
-== 2022-02-15
 
-=== Docker Einführung
+== 2022-02-15 (Di.)
+
+* Mitarbeit von Peter Klose
+
+=== Docker Einführung (yt-Video)
 
 * Please watch this video
 
@@ -1307,6 +1310,135 @@ IMPORTANT: 6, 7, 17, 27, 28, 45, 51
 ++++
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pTFZFxd4hOI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ++++
+
+
+=== Ist Docker installiert?
+
+[source,bash]
+----
+docker --version
+----
+
+=== Docker installieren
+
+==== Linux
+
+[source,bash]
+----
+sudo apt-get update
+sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+----
+
+==== Mac
+
+[source,bash]
+----
+brew install --cask docker
+----
+
+//==== Windows
+
+=== Docker testen
+
+Versuchen Sie:
+
+[source,bash]
+----
+docker run --rm docker/whalesay cowsay hello 3bhitm
+----
+
+Ausgabe:
+
+[source,text]
+----
+ ______________
+< hello 3bhitm >
+ --------------
+    \
+     \
+      \
+                    ##        .
+              ## ## ##       ==
+           ## ## ## ##      ===
+       /""""""""""""""""___/ ===
+  ~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~
+       \______ o          __/
+        \    \        __/
+          \____\______/
+----
+
+Funktioniert nicht?
+
+.Versuche dies
+[%collapsible]
+====
+[source,bash]
+----
+newgrp docker
+sudo groupadd docker
+sudo usermod -aG docker $USER
+----
+
+Docker starten:
+[source,bash]
+----
+sudo systemctl start docker
+----
+
+Docker Status:
+[source,bash]
+----
+sudo systemctl status docker
+----
+====
+
+=== Eigenen Docker Container
+
+Terminal:
+
+[source,bash]
+----
+mkdir docker
+cd docker <.>
+
+nano Dockerfile <.>
+----
+
+<.> neuen Ordner erstellen und hineinwechseln
+<.> neues File erstellen (image File) *muss* den Namen `Dockerfile` haben
+
+Dockerfile:
+
+[source,dockerfile]
+----
+FROM ubuntu
+
+RUN echo hello 3bhitm > test.txt
+----
+
+Terminal:
+
+[source,bash]
+----
+docker build -t my-ubuntu . <.>
+docker run -it my-ubuntu /bin/bash <.>
+----
+
+<.> Buildet einen Container mit dem Namen *my-ubuntu* im aktuellen Verzeichnis (*.*)
+<.> Startet den Container *my-ubuntu* mit einem interaktiven Terminal (*-it*) im Verzeichnis */bin/bash*
 
 
 

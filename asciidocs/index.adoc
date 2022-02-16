@@ -1288,3 +1288,29 @@ Zustände Rechnung:
 * wichtige Seiten im kapitel_3_3_Zustandsmaschinen.pdf
 
 IMPORTANT: 6, 7, 17, 27, 28, 45, 51
+
+== 2022-02-15
+
+=== Docker Einführung
+
+* Please watch this video
+
+////
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jPdIRX6q4jA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
+
+* This video is part of a https://www.youtube.com/playlist?list=PLy7NrYWoggjzfAHlUusx2wuDwfCrmJYcs[kubernetes course^]
+
+////
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pTFZFxd4hOI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
+
+
+
+
+
+
+

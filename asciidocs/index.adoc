@@ -1094,7 +1094,7 @@ rectangle PKW {
 ----
 
 ==== Verlinkungen
-2 Objekte in PlantUML können mithilfe von Links miteinander verbunden werden. Dies kann mit der Syntax <OBJEKT1> -- <OBJEKT2> erzeilt werden.
+2 Objekte in PlantUML können mithilfe von Links miteinander verbunden werden. Dies kann mit der Syntax `<OBJEKT1> -- <OBJEKT2>` erzielt werden.
 
     @startuml
     actor "driver" as fc
@@ -1289,8 +1289,28 @@ Zustände Rechnung:
 
 IMPORTANT: 6, 7, 17, 27, 28, 45, 51
 
-== 2022-02-15 (Prof. Aberger)
-by https://github.com/P-Klose[Peter Klose]
+
+== 2022-02-15 (Di.)
+
+* Mitarbeit von Peter Klose
+
+=== Docker Einführung (yt-Video)
+
+* Please watch this video
+
+////
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jPdIRX6q4jA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
+
+* This video is part of a https://www.youtube.com/playlist?list=PLy7NrYWoggjzfAHlUusx2wuDwfCrmJYcs[kubernetes course^]
+
+////
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pTFZFxd4hOI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+++++
+
 
 === Ist Docker installiert?
 
@@ -1372,7 +1392,7 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 ----
 
-Docker Starten:
+Docker starten:
 [source,bash]
 ----
 sudo systemctl start docker
@@ -1398,7 +1418,7 @@ nano Dockerfile <.>
 ----
 
 <.> neuen Ordner erstellen und hineinwechseln
-<.> neues File erstellen (image File) *muss* den Namen Dockerfile haben
+<.> neues File erstellen (image File) *muss* den Namen `Dockerfile` haben
 
 Dockerfile:
 
@@ -1417,5 +1437,12 @@ docker build -t my-ubuntu . <.>
 docker run -it my-ubuntu /bin/bash <.>
 ----
 
-<.> Buildet einen Container mit dem Namen *my-ubuntu* im Aktuellen verzeichnis (*.*)
+<.> Buildet einen Container mit dem Namen *my-ubuntu* im aktuellen Verzeichnis (*.*)
 <.> Startet den Container *my-ubuntu* mit einem interaktiven Terminal (*-it*) im Verzeichnis */bin/bash*
+
+
+
+
+
+
+

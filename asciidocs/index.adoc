@@ -1442,7 +1442,44 @@ docker run -it my-ubuntu /bin/bash <.>
 
 
 
+== 2022-02-17
+
+=== nginx auf oravm
 
 
+== 2022-03-01 (Di.)
+
+=== Im Container nicht
+
+.Dockerfile
+[source,Dockerfile]
+----
+FROM ...
+CMD ["tail", "-f", "/dev/null"]
+----
+
+=== Nachvollziehbarkeit
+
+* Beim Starten des Containers soll alles sauber definiert sein.
+* Daher ist es wichtig die Version beim zugrunde liegenden Image anzugeben.
+
+IMPORTANT: Immer bei FROM-Klausel eine Versionsnummer angeben (vergleiche https://semver.org/lang/de/[sematische Versonierung^])
+
+zB `FROM ubuntu:20.04` oder `FROM ubuntu:focal`
+
+* Würde man `latest` verwenden, kann sich die verwendete Version ändern
+** das Image kann "brechen", dh es funktioniert nicht mehr
+
+=== Nur ein Kommando
+
+* Jeder Container führt nur EIN Kommando aus
+* Man verwendet:
+** CMD oder
+** ENTRYPOINT
+* Haben unterschiedliche Funktionalität
+* Es muss immer ein String-Array übergeben werden
 
 
+=== docker-entrypoint
+
+* Alle Scripts in docker-entrypoint werden beim Start des Containers ausgeführt

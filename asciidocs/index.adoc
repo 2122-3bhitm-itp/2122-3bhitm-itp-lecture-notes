@@ -1555,23 +1555,73 @@ cd nginx
 
 ==== Erstellen eines Scripts zum Builden und Starten eines gedockerten nginx
 
+.installieren des Texteditors nano
 ----
-docker run --name my-nginx -v /html/content:/usr/share/nginx/html -d nginx:1.21.6
-docker image ls
-docker stop my-nginx
-docker container rm my-nginx
-# sudo apt install nano
-# nano start-nginx.sh
-docker run --name my-nginx -v /html/content:/usr/share/nginx/html -d nginx:1.21.6 > start-nginx.sh
-chmod +x start-nginx.sh
-./start-nginx.sh
+sudo apt install nano
 ----
 
+.Skript in Texteditor öffnen
+----
+nano start-nginx.sh
+----
+
+.Skript
+----
+docker run --name my-nginx \  # <.>
+           --rm \  # <.>
+           -v ${PWD}/html:/usr/share/nginx/html \  # <.>
+           -p 80:80 \  # <.>
+           -d \  # <.>
+           nginx:1.21.6  # <.>
+----
+
+<.> Der Container erhält den Namen `my-nginx`
+<.> rm ... remove -> nach dem Stoppen des Containers wird dieser gelöscht
+<.> bind mount -> im momentanen Verzeichnis `${PWD}` (print working directory) wird der html-Ordner aus dem Container gespiegelt.
+<.> p ... publish -> der Port 80 des guests wird auf den Port 80 des hosts zugewiesen
+<.> d ... daemon -> der Docker Container läuft im Hintergrund
+<.> Das Image `nginx` in der Version 1.21.6 wird verwendet
 
 
+----
+chmod +x start-nginx.sh  # <.>
+./start-nginx.sh # <.>
+----
+
+<.> executable-flag setzen
+<.> Skript im momentanen Verzeichnis starten
+
+IMPORTANT: Achten Sie darauf, dass die https://htl-leonding-college.github.io/quarkus-jar-gh-actions-demo/gh-actions.html#_create_an_ingress_rule_for_accessing_your_endpoint[Ingress-Rule^] gesetzt ist
+
+==== html-Contents erstellen
+
+- von Haus aus erstellt nginx keine html-Seite, dies erledigen wir nun.
+
+.im darunterliegenden (von docker erstelltem) html-Ordner wird ein index.html erstellt
+----
+sudo nano ./html/index.html
+----
+
+.html/index.html
+[source,html]
+----
+<html>
+<head><title>Test Drive</title></head>
+<body>
+<center><h1>Hello 3bhitm!</h1></center>
+<hr><center>nginx/1.21.6</center>
+</body>
+</html>
+----
+
+image:docker-nginx-browser.png[]
+
+- Wenn etwas im Skript verändert wird, kann man mit folgendem Befehl, den Container stoppen und sofort neu starten:
 
 
-
+----
+docker stop my-nginx && ./start-nginx.sh
+----
 
 
 

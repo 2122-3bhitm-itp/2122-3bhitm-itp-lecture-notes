@@ -1483,3 +1483,95 @@ zB `FROM ubuntu:20.04` oder `FROM ubuntu:focal`
 === docker-entrypoint
 
 * Alle Scripts in docker-entrypoint werden beim Start des Containers ausgeführt
+
+
+== 2022-03-03 Do.
+
+=== docker Installation auf oravm kontrollieren und vervollständigen
+
+==== Ist docker-compose installiert?
+
+----
+docker-compose -v
+----
+
+==== Ist der ubuntu-User in der docker-group
+
+.Anzeigen aller groups
+----
+cat /etc/groups
+----
+
+.Die group "docker" ist bereits enthalten -> sonst https://docs.docker.com/engine/install/linux-postinstall/[Optional post-installation steps]
+----
+root:x:0:
+daemon:x:1:
+bin:x:2:
+sys:x:3:
+adm:x:4:ubuntu
+tty:x:5:
+...
+opc:x:1000:
+ubuntu:x:1001:  <--
+docker:x:998:
+----
+
+TIP: Mit `cat /etc/passwd` kann man sich alle user ansehen.
+
+==== docker post-installation steps
+
+- https://docs.docker.com/engine/install/linux-postinstall/[Optional post-installation steps^]
+
+----
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+----
+
+
+.ausprobieren mit
+----
+docker image ls
+----
+
+=== nginx mittels docker installieren
+
+- https://hub.docker.com/_/nginx
+
+==== Vorbereiten des opt-Verzeichnisses
+
+- Wir wollen die docker Container in /opt starten
+
+----
+ll /
+sudo chown -R ubuntu:ubuntu /opt
+ll /
+cd /opt
+mkdir docker
+cd docker
+mkdir nginx
+cd nginx
+----
+
+==== Erstellen eines Scripts zum Builden und Starten eines gedockerten nginx
+
+----
+docker run --name my-nginx -v /html/content:/usr/share/nginx/html -d nginx:1.21.6
+docker image ls
+docker stop my-nginx
+docker container rm my-nginx
+# sudo apt install nano
+# nano start-nginx.sh
+docker run --name my-nginx -v /html/content:/usr/share/nginx/html -d nginx:1.21.6 > start-nginx.sh
+chmod +x start-nginx.sh
+./start-nginx.sh
+----
+
+
+
+
+
+
+
+
+

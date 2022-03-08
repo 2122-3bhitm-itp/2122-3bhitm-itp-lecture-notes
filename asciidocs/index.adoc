@@ -1458,6 +1458,9 @@ FROM ...
 CMD ["tail", "-f", "/dev/null"]
 ----
 
+* Dieses Kommando verhindert, dass der Docker Container beendet wird.
+
+
 === Nachvollziehbarkeit
 
 * Beim Starten des Containers soll alles sauber definiert sein.
@@ -1622,6 +1625,102 @@ image:docker-nginx-browser.png[]
 ----
 docker stop my-nginx && ./start-nginx.sh
 ----
+
+
+== 2022-03-08 Di
+
+=== Docker Mounts
+
+* bind mounts
+* volume mounts
+
+=== Schichten in Docker
+
+* Die Images werden schichtenweise gespeichert
+* Jedes RUN Kommando ist eine Schicht
+
+
+=== Docker Kommandos
+
+.Liste aller Container (inkl. der gestoppten Container)
+----
+docker container ls -a
+----
+
+.Löschen aller gestoppten Container
+----
+docker container prune -f
+----
+
+.Dockerfile
+----
+FROM postgres:14-bullseye
+RUN echo hello 3bhitm > test.txt
+----
+
+* Wir verwenden ein Dockerfile, damit die db automatisch intialisiert werden kann
+** eigene user
+** Daten zum Initialiseren der Datenbank
+** ...
+
+.Erstellen des Docker Images
+----
+docker build -t my-database .
+----
+
+.Erstellen des Docker Containers
+----
+docker run my-database
+----
+
+.Ausgabe
+----
+Error: Database is uninitialized and superuser password is not specified.
+       You must specify POSTGRES_PASSWORD to a non-empty value for the
+       superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+
+       You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+       connections without a password. This is *not* recommended.
+
+       See PostgreSQL documentation about "trust":
+       https://www.postgresql.org/docs/current/auth-trust.html
+----
+
+----
+netstat -ant
+----
+
+oder
+
+----
+netstat -tulpen
+----
+
+* ergänzen im
+** eine Environment Variable für das Password
+** der Port wird aus dem Container auf localhost (0.0.0.0) gehostet
+
+----
+docker run --name my-database -e POSTGRES_PASSWORD=password -p 5432:5432 my-database
+----
+
+----
+docker container ls
+----
+
+----
+CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS          PORTS                    NAMES
+3239b183f54c   my-database   "docker-entrypoint.s…"   23 seconds ago   Up 23 seconds   0.0.0.0:5432->5432/tcp   my-database
+----
+
+.Auf database zugreifen
+image::databse-postgres-datasource.png[]
+
+.Erstellen eines Volume Mounts
+----
+docker run --name my-database -e POSTGRES_PASSWORD=password -p 5432:5432 -v database-volume:/var/lib/postgresql/data my-database
+----
+
 
 
 

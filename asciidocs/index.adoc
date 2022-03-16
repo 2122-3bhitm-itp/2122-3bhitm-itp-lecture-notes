@@ -1713,13 +1713,170 @@ CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS   
 3239b183f54c   my-database   "docker-entrypoint.s…"   23 seconds ago   Up 23 seconds   0.0.0.0:5432->5432/tcp   my-database
 ----
 
-.Auf database zugreifen
-image::databse-postgres-datasource.png[]
+[#access-db-from-intellij]
+.Zugriff auf database
+image::database-postgres-datasource.png[]
 
 .Erstellen eines Volume Mounts
 ----
 docker run --name my-database -e POSTGRES_PASSWORD=password -p 5432:5432 -v database-volume:/var/lib/postgresql/data my-database
 ----
+
+== 2022-03-10 Projekte
+
+image::project-cinema-cld-v01.png[]
+
+* Für Reservierung ein Statusfeld einführen (OFFEN, VERKAUFT, RESERVIERT, GESPERRT)
+
+
+[plantuml,feuerloescher-cld,png]
+----
+@startuml
+class FireExtinguisher {}
+
+class Raum {}
+
+class Termin {}
+
+class Firma {}
+@enduml
+----
+
+[plantuml,uno-cld-v02,png]
+----
+@startuml
+class Player {}
+
+class Game {}
+
+class Hand{}
+
+class CardType {}
+
+class Deck {}
+
+class Card {}
+
+Player -- Hand
+
+Hand -- Game
+
+Hand <-- Card
+
+Card -- CardType
+
+Game -- Deck
+
+Deck <-- Card
+@enduml
+----
+////
+[plantuml,auction-cld,png]
+----
+@startuml
+'https://plantuml.com/class-diagram
+
+left to right direction
+
+abstract class Person{
+id:int
+name:String
+password:String
+}
+
+class Anbieter
+
+class Admin
+
+class Kunde
+
+class AuktionsProdukt{
+product_ID:int
+seller: String
+highestBid: int
+highestBidder: String
+sellDate: DateTime
+}
+
+Person <|-- Anbieter
+Person <|-- Kunde
+Person <|-- Admin
+Anbieter "*" -- "1" Admin
+Admin "1" -- "*" Kunde
+Kunde "1" -- "*" AuktionsProdukt
+Anbieter "1" -- "*" AuktionsProdukt
+@enduml
+----
+////
+
+
+=== DOM - Domain Object Model
+
+* nicht zu verwechseln mit dem Document Object Model (js-Programmierung)
+
+* Domain ... Fachbereich
+
+* Wir sprechen hierbei von Fachbereichsobjekten, zB
+** Arzt -> Patient, Diagnode, Behandlung, Arzt, Krankenzimmer
+** Kaufhaus -> Produkt, Kunde, Rechnung, Bestellung, ...
+
+* Technische Klassen (die zur Programmierung notwendig sind), sind nicht Bestandteil eines Domain Object Models
+
+
+
+== 2022-03-15 Di
+
+=== Wdhlg docker, docker-compose, volumes
+
+=== COPY in Dockerfile
+
+.starten des Containers
+----
+docker run --name my-database -e POSTGRES_PASSWORD=password -p 5432:5432 my-database
+----
+
+.öffnen in einem neuen Terminal
+----
+docker exec -it my-database bash
+----
+
+.import.sql im entrypoint-Verzeichnis im Container erstellen
+----
+create database db;
+----
+
+----
+cd docker-entrypoint-initdb.d/
+echo create database db; > import.sql
+----
+
+.start.sh
+----
+#!/usr/bin/env bash
+docker run --name my-database -e POSTGRES_PASSWORD=password --rm -p 5432:5432 my-database
+----
+
+.ausführbar machen
+----
+chmod +x start.sh
+----
+//--
+
+* jetzt kann man von IntelliJ auf die DB zugreifen, vgl. <<access-db-from-intellij>>
+
+
+
+----
+FROM postgres:14-bullseye
+RUN echo hello 3bhitm > test.txt
+
+COPY import .sql docker-entrypoint-initdb.d/
+----
+
+
+
+
+
 
 
 

@@ -1822,7 +1822,7 @@ Anbieter "1" -- "*" AuktionsProdukt
 
 * Technische Klassen (die zur Programmierung notwendig sind), sind nicht Bestandteil eines Domain Object Models
 
-
+* Die Domain-Objekte entsprechen den Tabellen, die in der Datenbank gespeichert werden (ERD - Entity Relationship Diagram)
 
 == 2022-03-15 Di
 
@@ -1870,8 +1870,29 @@ chmod +x start.sh
 FROM postgres:14-bullseye
 RUN echo hello 3bhitm > test.txt
 
-COPY import .sql docker-entrypoint-initdb.d/
+COPY import.sql docker-entrypoint-initdb.d/
 ----
+
+
+
+== 2022-03-17 Do.
+
+=== Anforderungsdef. (Requirements elicitation)
+
+* Buch S. 235 ff
+
+=== Was ist zu tun?
+
+==== Pflichtenheft (SysSpec)
+
+https://github.com/htl-leonding-college/asciidoctor-docker-template/tree/master/asciidocs.demo
+
+==== Erstellen eines maven-Projekts
+
+* Anlegen der Datenbank
+* Erstellen von Unit Tests mit assertj-core und assertj-db
+
+https://github.com/1920-3ahitm-itp/02-project-repositories-studentfeedback
 
 
 

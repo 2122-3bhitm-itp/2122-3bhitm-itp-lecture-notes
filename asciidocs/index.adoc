@@ -1895,6 +1895,22 @@ https://github.com/htl-leonding-college/asciidoctor-docker-template/tree/master/
 https://github.com/1920-3ahitm-itp/02-project-repositories-studentfeedback
 
 
+== 2022-03-22 Di.
+
+C.Aberger fehlt
+
+* https://github.com/jjenkov/javafx-examples
+
+* https://bit.ly/htl-leonding-scripts
+
+
+
+
+
+
+
+
+
 
 
 

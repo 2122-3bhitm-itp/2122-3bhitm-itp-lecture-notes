@@ -1904,6 +1904,9 @@ C.Aberger fehlt
 * https://bit.ly/htl-leonding-scripts
 
 
+== 2022-03-24
+
+* https://assertj.github.io/doc/#assertj-core
 
 
 

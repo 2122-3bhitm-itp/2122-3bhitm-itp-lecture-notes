@@ -1909,6 +1909,87 @@ C.Aberger fehlt
 * https://assertj.github.io/doc/#assertj-core
 
 
+== 2022-03-29 Di.
+
+=== Persistieren von Daten bei Docker
+
+* im Container (ist nicht wirklich ein persistentes speichern, da die Daten geloescht werden, wenn der Container geloesct wird.)
+
+* bind mount
+
+* volume mount (host mounted volumes)
+
+
+=== docker-compose
+
+* Im Gegensatz zu virtualbox usw. werden nicht alle Dienste in eine vm installiert, sondern bei Docker wird fuer jeden Dienst ein container erstellt.
+
+
+* Erstellen eines dockr-compose.yml files
+
+[source,yaml]
+----
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres:14-bullseye
+    restart: always
+    environment:
+      POSTGRES_DB: db
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8090:8080
+----
+
+.Starten
+----
+docker-compose up
+----
+
+* Derzeit kann man auf die DB nur ueber den Adminer zugreifen (ist vergleichbar mit phpadmin)
+
+** http:// localhost:8090
+
+.Nachschauen welcher Dienst lokal laeuft
+----
+netstat -ant| grep LISTEN
+----
+
+.Hinzufuegen eines Ports fuer den direkten Zugriff
+[source,yaml]
+----
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres:14-bullseye
+    restart: always
+    environment:
+      POSTGRES_DB: db
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+    ports:
+      - 5432:5432
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8090:8080
+----
+
+* Wird die db nun wieder gestartet, so kann man direkt auf die db zugreifen: zB ueber intellij
+
+
+
 
 
 

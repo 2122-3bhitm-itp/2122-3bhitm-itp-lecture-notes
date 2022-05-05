@@ -1988,7 +1988,14 @@ services:
 
 * Wird die db nun wieder gestartet, so kann man direkt auf die db zugreifen: zB ueber intellij
 
+== 2022-05-05 Di.
 
+Lösung Wiederholungstest CLD:
+
+[plantuml, lösung_wdh_test]
+-----
+include::plantuml/wdh_test.puml[]
+-----
 
 
 

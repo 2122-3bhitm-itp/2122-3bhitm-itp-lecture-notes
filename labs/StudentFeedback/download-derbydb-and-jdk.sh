@@ -22,7 +22,7 @@ if [ "$1" = "java" ]
     #echo "to use this JDK invoke 'source ./set-local-env.sh'"
 fi
 
-# add db/ to .gitignore, when db does not exist
+# add db/ to .dockerignore, when db does not exist
 if [ ! -d "db" ]; then
   echo "db/" >> .gitignore
 fi

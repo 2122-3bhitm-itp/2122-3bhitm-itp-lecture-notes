@@ -567,7 +567,7 @@ image::IntelliJ-auto-git-pulls.jpg[]
 
 === Git stash - Tutorial (von Atlassian BitBucket)
 
-* https://www.atlassian.com/de/git/tutorials/saving-changes/git-stash[git stash - tutorial]
+* https://www.atlassian.com/de/git/tutorials/saving-changes/git-stash[git stash - tutorial^]
 
 === Git branches (Mitschrift Thomas Spindler)
 

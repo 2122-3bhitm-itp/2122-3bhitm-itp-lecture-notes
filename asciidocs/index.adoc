@@ -565,6 +565,10 @@ IMPORTANT: Git pulls sollten regelmäßig und oft gemacht werden, um größere K
 
 image::IntelliJ-auto-git-pulls.jpg[]
 
+=== Git stash - Tutorial (von Atlassian BitBucket)
+
+* https://www.atlassian.com/de/git/tutorials/saving-changes/git-stash[git stash - tutorial]
+
 === Git branches (Mitschrift Thomas Spindler)
 
 Die folgenden Übungen wurden in 06-git-lab-school mit 2er Gruppen durchgeführt. +

@@ -260,7 +260,7 @@ image::packages.png[]
 https://semver.org/lang/de/
 
 
-* z.B 5.3.2
+* z.B. 5.3.2
 ** 5 -> Major-Version
 ** 3 -> Minor-Version
 ** 2 -> Patch
@@ -284,7 +284,7 @@ Außerdem sind Bezeichner für Vorveröffentlichungen und Build-Metadaten als Er
 
 === pom.xml
 
-* ist deklarativ (nicht imparativ)
+* ist deklarativ (nicht imperativ)
 * Das Projektergebnis wird beschrieben und nicht der Weg dorthin.
 
 
@@ -294,7 +294,7 @@ Außerdem sind Bezeichner für Vorveröffentlichungen und Build-Metadaten als Er
 
 == Projektauftrag kontrolliert
 
-== UML Klassediagramm
+== UML Klassendiagramm
 
 === Multiplizität
 
@@ -382,8 +382,8 @@ IMPORTANT: Bei Generalisierung noch complete / incomplete und disjoint/overlappi
 
 ===== Markdown
 
-* Für markdown gibt es eigene Tools zb MacDown für MacOS, Notion als Browser-Plugin, bzw Plugins für sämtliche IDEs zB VSC, intellij, usw
-* markdown wird in github und in wikis wie zB der wikipedia verwendet
+* Für markdown gibt es eigene Tools z.B. MacDown für MacOS, Notion als Browser-Plugin, bzw Plugins für sämtliche IDEs z.B. VSC, intellij, usw
+* markdown wird in github und in wikis wie z.B. der wikipedia verwendet
 
 * Nachteile:
 ** beschränkte Möglichkeiten -> daher ist es schwieriger umfangreiche Dokumente zu erstellen
@@ -396,7 +396,7 @@ IMPORTANT: Bei Generalisierung noch complete / incomplete und disjoint/overlappi
 
 * vice versa wie Markdown (größerer Funktionsumfang)
 
-* Quellen zum nachsehen / lernen
+* Quellen zum Nachsehen / lernen
 ** https://docs.asciidoctor.org/asciidoc/latest/
 ** https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
 ** https://docs.asciidoctor.org/reveal.js-converter/latest/showcase/
@@ -534,8 +534,8 @@ aufgrund des Commites kann stash nicht ausgeführt werden.
 
 IMPORTANT: vor dem commit IMMER einen pull machen
 
-Öffnen des Repos in IntelliJ für einen Merge
-Mergeconflikte sind auf der Commandzeile eher schwer zu machen,
+Öffnen des Repos in IntelliJ für einen Merge.
+Mergekonflikte sind auf der Kommandozeile eher schwer zu machen,
 daher sollten wir dafür einen Editor verwenden (IntelliJ, VSCode)
 
 === Git stash (Mitschrift Thomas Spindler)
@@ -858,7 +858,7 @@ class example {
 @enduml
 ----
 
-Statische und Abstrakte Element einer Klasse können ebenfalls dargestellt werden:
+Statische und abstrakte Element einer Klasse können ebenfalls dargestellt werden:
 
 ----
 @startuml
@@ -888,7 +888,7 @@ Die Linien zwischen Methoden und Variablen kann man auch selbst setzten. +
 Siehe https://plantuml.com/class-diagram[PlantUMLDoc]
 
 ==== Notizen
-Notizen in Plantuml sind wichtig, wenn man teile des Diagrams kommentieren möchte, dies allerdings im finalen
+Notizen in Plantuml sind wichtig, wenn man Teile des Diagrams kommentieren möchte, dies allerdings im finalen
 Diagramm enthalten sein sollte.
 
 ----
@@ -940,7 +940,7 @@ CMT1 .right. Player
 
 Nun können wir das gelernte Wissen anwenden und ein Klassendiagramm gestalten.
 
-Dazu legen wir zu als erstes alle Klassen an, die wir benötigen:
+Dazu legen wir zu als Erstes alle Klassen an, die wir benötigen:
 
 ----
 @startuml
@@ -1268,7 +1268,7 @@ IMPORTANT: 2, 3, 4, 7, 8, 13, 17, 19, 20, 22
 
 == Zustandsmaschinen (Mitschrift Moritz Eder)
 
-Ein Thermostat ist ein gutes Beispiel für eine Zustandsmaschine. (siehe Seite
+Ein Thermostat ist ein gutes Beispiel für eine Zustandsmaschine. (siehe Seite 6)
 
 Zustände Flugzeugbetrieb:
 
@@ -1466,9 +1466,9 @@ CMD ["tail", "-f", "/dev/null"]
 * Beim Starten des Containers soll alles sauber definiert sein.
 * Daher ist es wichtig die Version beim zugrunde liegenden Image anzugeben.
 
-IMPORTANT: Immer bei FROM-Klausel eine Versionsnummer angeben (vergleiche https://semver.org/lang/de/[sematische Versonierung^])
+IMPORTANT: Immer bei FROM-Klausel eine Versionsnummer angeben (vergleiche https://semver.org/lang/de/[semantische Versionierung^])
 
-zB `FROM ubuntu:20.04` oder `FROM ubuntu:focal`
+z.B. `FROM ubuntu:20.04` oder `FROM ubuntu:focal`
 
 * Würde man `latest` verwenden, kann sich die verwendete Version ändern
 ** das Image kann "brechen", dh es funktioniert nicht mehr
@@ -1817,7 +1817,7 @@ Anbieter "1" -- "*" AuktionsProdukt
 * Domain ... Fachbereich
 
 * Wir sprechen hierbei von Fachbereichsobjekten, zB
-** Arzt -> Patient, Diagnode, Behandlung, Arzt, Krankenzimmer
+** Arzt -> Patient, Diagnose, Behandlung, Arzt, Krankenzimmer
 ** Kaufhaus -> Produkt, Kunde, Rechnung, Bestellung, ...
 
 * Technische Klassen (die zur Programmierung notwendig sind), sind nicht Bestandteil eines Domain Object Models
@@ -1943,7 +1943,7 @@ C.Aberger fehlt
 
 === Persistieren von Daten bei Docker
 
-* im Container (ist nicht wirklich ein persistentes speichern, da die Daten geloescht werden, wenn der Container geloesct wird.)
+* im Container (ist nicht wirklich ein persistentes Speichern, da die Daten gelöscht werden, wenn der Container gelöscht wird.)
 
 * bind mount
 
@@ -1952,10 +1952,10 @@ C.Aberger fehlt
 
 === docker-compose
 
-* Im Gegensatz zu virtualbox usw. werden nicht alle Dienste in eine vm installiert, sondern bei Docker wird fuer jeden Dienst ein container erstellt.
+* Im Gegensatz zu virtualbox usw. werden nicht alle Dienste in eine vm installiert, sondern bei Docker wird fer jeden Dienst ein container erstellt.
 
 
-* Erstellen eines dockr-compose.yml files
+* Erstellen eines docker-compose.yml files
 
 [source,yaml]
 ----
@@ -1983,16 +1983,16 @@ services:
 docker-compose up
 ----
 
-* Derzeit kann man auf die DB nur ueber den Adminer zugreifen (ist vergleichbar mit phpadmin)
+* Derzeit kann man auf die DB nur über den Adminer zugreifen (ist vergleichbar mit phpadmin)
 
 ** http:// localhost:8090
 
-.Nachschauen welcher Dienst lokal laeuft
+.Nachschauen welcher Dienst lokal läuft
 ----
 netstat -ant| grep LISTEN
 ----
 
-.Hinzufuegen eines Ports fuer den direkten Zugriff
+.Hinzufügen eines Ports für den direkten Zugriff
 [source,yaml]
 ----
 version: '3.1'
@@ -2016,7 +2016,7 @@ services:
       - 8090:8080
 ----
 
-* Wird die db nun wieder gestartet, so kann man direkt auf die db zugreifen: zB ueber intellij
+* Wird die db nun wieder gestartet, so kann man direkt auf die db zugreifen: z.B. über intellij
 
 == 2022-05-05 Di.
 
@@ -2051,11 +2051,11 @@ CMD ["java", "-jar", "/opt/app/japp.jar"]
 * Dockerfile ins root kopieren
 
 * Korrektes Datenmodell
-* Beispielsdaten sind zu erstellen (besonders fuer die Stammdaten):
+* Beispieldaten sind zu erstellen (besonders für die Stammdaten):
 ** entweder mittels unit-tests
-** oder ueber sql-Statements (in 3 files: create-xx.sql, insert-xx.sql und drop-xx.sql)
+** oder über sql-Statements (in 3 files: create-xx.sql, insert-xx.sql und drop-xx.sql)
 
-* Geschäftsprozesse mit Unit-Tests abbilden zB
+* Geschäftsprozesse mit Unit-Tests abbilden z.B.
 ** Erstellen einer Auktion mit einem Produkt und einem Verkäufer
 ** Abgabe eines Angebots
 

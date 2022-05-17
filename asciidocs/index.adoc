@@ -2035,7 +2035,7 @@ image::PATCH.jpeg[]
 
 image::DELETE.jpeg[]
 
-==== Erstellen eines Dockerfiles
+=== Erstellen eines Dockerfiles
 
 ----
 FROM eclipse-temurin:17
@@ -2044,7 +2044,7 @@ COPY japp.jar /opt/app
 CMD ["java", "-jar", "/opt/app/japp.jar"]
 ----
 
-==== Erstellen eines uber-jars
+=== Erstellen eines uber-jars
 
 * quarkus.package.type=uber-jar
 
@@ -2095,5 +2095,5 @@ docker rmi $(docker images -q)
 
 === Übung
 
-.Erstellen eines Dockerfiles: im homeverzeichnis steht ein Text
-.Erstellen eines zweiten Dockerfiles, welches am ersten Docker-Image basiert und den Text im Home ausgibt
+. Erstellen eines Dockerfiles: im homeverzeichnis steht ein Text
+. Erstellen eines zweiten Dockerfiles, welches am ersten Docker-Image basiert und den Text im Home ausgibt

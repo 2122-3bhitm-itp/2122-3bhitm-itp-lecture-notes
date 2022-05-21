@@ -2138,3 +2138,10 @@ IMPORTANT: Es muss nicht für jede Entität ein eigenes Repository erstellt werd
 *** Repositories für Zugriff auf Tabellen
 
 ** User-Stories müssen als Unit-Tests implementiert sein
+
+
+TIP: Empfehle folgendes Video: https://www.youtube.com/watch?v=6uSnF6IuWIw[JUnit 5 Tutorial - Nice & Easy^]
+
+* Test-Libraries:
+** https://github.com/lukas-krecan/JsonUnit
+** maybe better: https://github.com/karatelabs/karate#test-automation-made-simple[Intuit Karate^]

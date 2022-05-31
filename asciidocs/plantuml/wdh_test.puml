@@ -1,0 +1,43 @@
+@startuml
+
+left to right direction
+
+class Product {
+    -name: String
+    -einheit: String
+    -unitsInStock: integer
+    -pricePerUnit: Double
+}
+
+class Customer {
+
+}
+
+class Invoice {
+    -InvoiceDate: date
+    -customer: Customer
+    -employee: Employee
+    -discount: Double
+}
+
+class Employee {
+
+}
+
+class Invoice_Product {
+    -product: Product
+    -pricePerUnit: Double
+    -amount: Double
+}
+
+enum Unit {
+
+}
+
+Customer "1" <-- "*" Invoice
+Invoice "*" -- "*" Product
+(Invoice, Product) .. Invoice_Product
+Employee "1" <-- "*" Invoice
+Unit --> Product
+
+@enduml

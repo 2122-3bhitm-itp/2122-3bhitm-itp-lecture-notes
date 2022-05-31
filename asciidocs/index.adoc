@@ -260,7 +260,7 @@ image::packages.png[]
 https://semver.org/lang/de/
 
 
-* z.B 5.3.2
+* z.B. 5.3.2
 ** 5 -> Major-Version
 ** 3 -> Minor-Version
 ** 2 -> Patch
@@ -284,7 +284,7 @@ Außerdem sind Bezeichner für Vorveröffentlichungen und Build-Metadaten als Er
 
 === pom.xml
 
-* ist deklarativ (nicht imparativ)
+* ist deklarativ (nicht imperativ)
 * Das Projektergebnis wird beschrieben und nicht der Weg dorthin.
 
 
@@ -294,7 +294,7 @@ Außerdem sind Bezeichner für Vorveröffentlichungen und Build-Metadaten als Er
 
 == Projektauftrag kontrolliert
 
-== UML Klassediagramm
+== UML Klassendiagramm
 
 === Multiplizität
 
@@ -382,8 +382,8 @@ IMPORTANT: Bei Generalisierung noch complete / incomplete und disjoint/overlappi
 
 ===== Markdown
 
-* Für markdown gibt es eigene Tools zb MacDown für MacOS, Notion als Browser-Plugin, bzw Plugins für sämtliche IDEs zB VSC, intellij, usw
-* markdown wird in github und in wikis wie zB der wikipedia verwendet
+* Für markdown gibt es eigene Tools z.B. MacDown für MacOS, Notion als Browser-Plugin, bzw Plugins für sämtliche IDEs z.B. VSC, intellij, usw
+* markdown wird in github und in wikis wie z.B. der wikipedia verwendet
 
 * Nachteile:
 ** beschränkte Möglichkeiten -> daher ist es schwieriger umfangreiche Dokumente zu erstellen
@@ -396,7 +396,7 @@ IMPORTANT: Bei Generalisierung noch complete / incomplete und disjoint/overlappi
 
 * vice versa wie Markdown (größerer Funktionsumfang)
 
-* Quellen zum nachsehen / lernen
+* Quellen zum Nachsehen / lernen
 ** https://docs.asciidoctor.org/asciidoc/latest/
 ** https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
 ** https://docs.asciidoctor.org/reveal.js-converter/latest/showcase/
@@ -534,8 +534,8 @@ aufgrund des Commites kann stash nicht ausgeführt werden.
 
 IMPORTANT: vor dem commit IMMER einen pull machen
 
-Öffnen des Repos in IntelliJ für einen Merge
-Mergeconflikte sind auf der Commandzeile eher schwer zu machen,
+Öffnen des Repos in IntelliJ für einen Merge.
+Mergekonflikte sind auf der Kommandozeile eher schwer zu machen,
 daher sollten wir dafür einen Editor verwenden (IntelliJ, VSCode)
 
 === Git stash (Mitschrift Thomas Spindler)
@@ -564,6 +564,11 @@ Dann können wir ohne weitere Probleme commiten und pushen.
 IMPORTANT: Git pulls sollten regelmäßig und oft gemacht werden, um größere Konflikt zu verhindern. Dies kann auch in IntelliJ unter den folgenden Optionen automatisiert werden:
 
 image::IntelliJ-auto-git-pulls.jpg[]
+
+=== Git stash - Tutorial (von Atlassian BitBucket)
+
+* https://www.atlassian.com/de/git/tutorials/saving-changes/git-stash[git stash - tutorial, window="_blank"]
+
 
 === Git branches (Mitschrift Thomas Spindler)
 
@@ -858,7 +863,7 @@ class example {
 @enduml
 ----
 
-Statische und Abstrakte Element einer Klasse können ebenfalls dargestellt werden:
+Statische und abstrakte Element einer Klasse können ebenfalls dargestellt werden:
 
 ----
 @startuml
@@ -888,7 +893,7 @@ Die Linien zwischen Methoden und Variablen kann man auch selbst setzten. +
 Siehe https://plantuml.com/class-diagram[PlantUMLDoc]
 
 ==== Notizen
-Notizen in Plantuml sind wichtig, wenn man teile des Diagrams kommentieren möchte, dies allerdings im finalen
+Notizen in Plantuml sind wichtig, wenn man Teile des Diagrams kommentieren möchte, dies allerdings im finalen
 Diagramm enthalten sein sollte.
 
 ----
@@ -940,7 +945,7 @@ CMT1 .right. Player
 
 Nun können wir das gelernte Wissen anwenden und ein Klassendiagramm gestalten.
 
-Dazu legen wir zu als erstes alle Klassen an, die wir benötigen:
+Dazu legen wir zu als Erstes alle Klassen an, die wir benötigen:
 
 ----
 @startuml
@@ -1268,7 +1273,7 @@ IMPORTANT: 2, 3, 4, 7, 8, 13, 17, 19, 20, 22
 
 == Zustandsmaschinen (Mitschrift Moritz Eder)
 
-Ein Thermostat ist ein gutes Beispiel für eine Zustandsmaschine. (siehe Seite
+Ein Thermostat ist ein gutes Beispiel für eine Zustandsmaschine. (siehe Seite 6)
 
 Zustände Flugzeugbetrieb:
 
@@ -1458,14 +1463,17 @@ FROM ...
 CMD ["tail", "-f", "/dev/null"]
 ----
 
+* Dieses Kommando verhindert, dass der Docker Container beendet wird.
+
+
 === Nachvollziehbarkeit
 
 * Beim Starten des Containers soll alles sauber definiert sein.
 * Daher ist es wichtig die Version beim zugrunde liegenden Image anzugeben.
 
-IMPORTANT: Immer bei FROM-Klausel eine Versionsnummer angeben (vergleiche https://semver.org/lang/de/[sematische Versonierung^])
+IMPORTANT: Immer bei FROM-Klausel eine Versionsnummer angeben (vergleiche https://semver.org/lang/de/[semantische Versionierung^])
 
-zB `FROM ubuntu:20.04` oder `FROM ubuntu:focal`
+z.B. `FROM ubuntu:20.04` oder `FROM ubuntu:focal`
 
 * Würde man `latest` verwenden, kann sich die verwendete Version ändern
 ** das Image kann "brechen", dh es funktioniert nicht mehr
@@ -1483,3 +1491,657 @@ zB `FROM ubuntu:20.04` oder `FROM ubuntu:focal`
 === docker-entrypoint
 
 * Alle Scripts in docker-entrypoint werden beim Start des Containers ausgeführt
+
+
+== 2022-03-03 Do.
+
+=== docker Installation auf oravm kontrollieren und vervollständigen
+
+==== Ist docker-compose installiert?
+
+----
+docker-compose -v
+----
+
+==== Ist der ubuntu-User in der docker-group
+
+.Anzeigen aller groups
+----
+cat /etc/groups
+----
+
+.Die group "docker" ist bereits enthalten -> sonst https://docs.docker.com/engine/install/linux-postinstall/[Optional post-installation steps]
+----
+root:x:0:
+daemon:x:1:
+bin:x:2:
+sys:x:3:
+adm:x:4:ubuntu
+tty:x:5:
+...
+opc:x:1000:
+ubuntu:x:1001:  <--
+docker:x:998:
+----
+
+TIP: Mit `cat /etc/passwd` kann man sich alle user ansehen.
+
+==== docker post-installation steps
+
+- https://docs.docker.com/engine/install/linux-postinstall/[Optional post-installation steps^]
+
+----
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+----
+
+
+.ausprobieren mit
+----
+docker image ls
+----
+
+=== nginx mittels docker installieren
+
+- https://hub.docker.com/_/nginx
+
+==== Vorbereiten des opt-Verzeichnisses
+
+- Wir wollen die docker Container in /opt starten
+
+----
+ll /
+sudo chown -R ubuntu:ubuntu /opt
+ll /
+cd /opt
+mkdir docker
+cd docker
+mkdir nginx
+cd nginx
+----
+
+==== Erstellen eines Scripts zum Builden und Starten eines gedockerten nginx
+
+.installieren des Texteditors nano
+----
+sudo apt install nano
+----
+
+.Skript in Texteditor öffnen
+----
+nano start-nginx.sh
+----
+
+.Skript
+----
+docker run --name my-nginx \  # <.>
+           --rm \  # <.>
+           -v ${PWD}/html:/usr/share/nginx/html \  # <.>
+           -p 80:80 \  # <.>
+           -d \  # <.>
+           nginx:1.21.6  # <.>
+----
+
+<.> Der Container erhält den Namen `my-nginx`
+<.> rm ... remove -> nach dem Stoppen des Containers wird dieser gelöscht
+<.> bind mount -> im momentanen Verzeichnis `${PWD}` (print working directory) wird der html-Ordner aus dem Container gespiegelt.
+<.> p ... publish -> der Port 80 des guests wird auf den Port 80 des hosts zugewiesen
+<.> d ... daemon -> der Docker Container läuft im Hintergrund
+<.> Das Image `nginx` in der Version 1.21.6 wird verwendet
+
+
+----
+chmod +x start-nginx.sh  # <.>
+./start-nginx.sh # <.>
+----
+
+<.> executable-flag setzen
+<.> Skript im momentanen Verzeichnis starten
+
+IMPORTANT: Achten Sie darauf, dass die https://htl-leonding-college.github.io/quarkus-jar-gh-actions-demo/gh-actions.html#_create_an_ingress_rule_for_accessing_your_endpoint[Ingress-Rule^] gesetzt ist
+
+==== html-Contents erstellen
+
+- von Haus aus erstellt nginx keine html-Seite, dies erledigen wir nun.
+
+.im darunterliegenden (von docker erstelltem) html-Ordner wird ein index.html erstellt
+----
+sudo nano ./html/index.html
+----
+
+.html/index.html
+[source,html]
+----
+<html>
+<head><title>Test Drive</title></head>
+<body>
+<center><h1>Hello 3bhitm!</h1></center>
+<hr><center>nginx/1.21.6</center>
+</body>
+</html>
+----
+
+image:docker-nginx-browser.png[]
+
+- Wenn etwas im Skript verändert wird, kann man mit folgendem Befehl, den Container stoppen und sofort neu starten:
+
+
+----
+docker stop my-nginx && ./start-nginx.sh
+----
+
+
+== 2022-03-08 Di
+
+=== Docker Mounts
+
+* bind mounts
+* volume mounts
+
+=== Schichten in Docker
+
+* Die Images werden schichtenweise gespeichert
+* Jedes RUN Kommando ist eine Schicht
+
+
+=== Docker Kommandos
+
+.Liste aller Container (inkl. der gestoppten Container)
+----
+docker container ls -a
+----
+
+.Löschen aller gestoppten Container
+----
+docker container prune -f
+----
+
+.Dockerfile
+----
+FROM postgres:14-bullseye
+RUN echo hello 3bhitm > test.txt
+----
+
+* Wir verwenden ein Dockerfile, damit die db automatisch intialisiert werden kann
+** eigene user
+** Daten zum Initialiseren der Datenbank
+** ...
+
+.Erstellen des Docker Images
+----
+docker build -t my-database .
+----
+
+.Erstellen des Docker Containers
+----
+docker run my-database
+----
+
+.Ausgabe
+----
+Error: Database is uninitialized and superuser password is not specified.
+       You must specify POSTGRES_PASSWORD to a non-empty value for the
+       superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+
+       You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
+       connections without a password. This is *not* recommended.
+
+       See PostgreSQL documentation about "trust":
+       https://www.postgresql.org/docs/current/auth-trust.html
+----
+
+----
+netstat -ant
+----
+
+oder
+
+----
+netstat -tulpen
+----
+
+* ergänzen im
+** eine Environment Variable für das Password
+** der Port wird aus dem Container auf localhost (0.0.0.0) gehostet
+
+----
+docker run --name my-database -e POSTGRES_PASSWORD=password -p 5432:5432 my-database
+----
+
+----
+docker container ls
+----
+
+----
+CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS          PORTS                    NAMES
+3239b183f54c   my-database   "docker-entrypoint.s…"   23 seconds ago   Up 23 seconds   0.0.0.0:5432->5432/tcp   my-database
+----
+
+[#access-db-from-intellij]
+.Zugriff auf database
+image::database-postgres-datasource.png[]
+
+.Erstellen eines Volume Mounts
+----
+docker run --name my-database -e POSTGRES_PASSWORD=password -p 5432:5432 -v database-volume:/var/lib/postgresql/data my-database
+----
+
+== 2022-03-10 Projekte
+
+image::project-cinema-cld-v01.png[]
+
+* Für Reservierung ein Statusfeld einführen (OFFEN, VERKAUFT, RESERVIERT, GESPERRT)
+
+
+[plantuml,feuerloescher-cld,png]
+----
+@startuml
+class FireExtinguisher {}
+
+class Raum {}
+
+class Termin {}
+
+class Firma {}
+@enduml
+----
+
+[plantuml,uno-cld-v02,png]
+----
+@startuml
+class Player {}
+
+class Game {}
+
+class Hand{}
+
+class CardType {}
+
+class Deck {}
+
+class Card {}
+
+Player -- Hand
+
+Hand -- Game
+
+Hand <-- Card
+
+Card -- CardType
+
+Game -- Deck
+
+Deck <-- Card
+@enduml
+----
+////
+[plantuml,auction-cld,png]
+----
+@startuml
+'https://plantuml.com/class-diagram
+
+left to right direction
+
+abstract class Person{
+id:int
+name:String
+password:String
+}
+
+class Anbieter
+
+class Admin
+
+class Kunde
+
+class AuktionsProdukt{
+product_ID:int
+seller: String
+highestBid: int
+highestBidder: String
+sellDate: DateTime
+}
+
+Person <|-- Anbieter
+Person <|-- Kunde
+Person <|-- Admin
+Anbieter "*" -- "1" Admin
+Admin "1" -- "*" Kunde
+Kunde "1" -- "*" AuktionsProdukt
+Anbieter "1" -- "*" AuktionsProdukt
+@enduml
+----
+////
+
+
+=== DOM - Domain Object Model
+
+* nicht zu verwechseln mit dem Document Object Model (js-Programmierung)
+
+* Domain ... Fachbereich
+
+* Wir sprechen hierbei von Fachbereichsobjekten, zB
+** Arzt -> Patient, Diagnose, Behandlung, Arzt, Krankenzimmer
+** Kaufhaus -> Produkt, Kunde, Rechnung, Bestellung, ...
+
+* Technische Klassen (die zur Programmierung notwendig sind), sind nicht Bestandteil eines Domain Object Models
+
+* Die Domain-Objekte entsprechen den Tabellen, die in der Datenbank gespeichert werden (ERD - Entity Relationship Diagram)
+
+== 2022-03-15 Di
+
+=== Wdhlg docker, docker-compose, volumes
+
+=== COPY in Dockerfile
+
+.starten des Containers
+----
+docker run --name my-database -e POSTGRES_PASSWORD=password -p 5432:5432 my-database
+----
+
+.öffnen in einem neuen Terminal
+----
+docker exec -it my-database bash
+----
+
+.import.sql im entrypoint-Verzeichnis im Container erstellen
+----
+create database db;
+----
+
+----
+cd docker-entrypoint-initdb.d/
+echo create database db; > import.sql
+----
+
+.start.sh
+----
+#!/usr/bin/env bash
+docker run --name my-database -e POSTGRES_PASSWORD=password --rm -p 5432:5432 my-database
+----
+
+.ausführbar machen
+----
+chmod +x start.sh
+----
+//--
+
+* jetzt kann man von IntelliJ auf die DB zugreifen, vgl. <<access-db-from-intellij>>
+
+
+
+----
+FROM postgres:14-bullseye
+RUN echo hello 3bhitm > test.txt
+
+COPY import.sql docker-entrypoint-initdb.d/
+----
+
+
+== 2022-03-31
+
+* LF: 21.4.2022
+
+* Stoffumfang:
+** UML-CLD
+** plantuml
+** asciidoctor
+*** wie mache ich ein adoc-Dokument?
+*** wie bette ich ein plantuml-Diagramm ein (include vs erstellen im adoc-Dokument)
+** git
+** docker
+** docker-compose
+
+
+* Stoffumfang:
+** Projektmerkmale
+** uml-cld
+** git
+** was ist docker?
+
+
+//--
+
+* https://crashedmind.github.io/PlantUMLHitchhikersGuide/[The Hitchhiker’s Guide to PlantUML!^]
+* https://crashedmind.github.io/PlantUMLHitchhikersGuide/layout/layout.html[]
+
+
+
+=== Nächste Schritte im Projekt
+
+== 2022-03-17 Do.
+
+=== Anforderungsdef. (Requirements elicitation)
+
+* Buch S. 235 ff
+
+=== Was ist zu tun?
+
+==== Pflichtenheft (SysSpec)
+
+https://github.com/htl-leonding-college/asciidoctor-docker-template/tree/master/asciidocs.demo
+
+==== Erstellen eines maven-Projekts
+
+* Anlegen der Datenbank
+* Erstellen von Unit Tests mit assertj-core und assertj-db
+
+https://github.com/1920-3ahitm-itp/02-project-repositories-studentfeedback
+
+
+== 2022-03-22 Di.
+
+C.Aberger fehlt
+
+* https://github.com/jjenkov/javafx-examples
+
+* https://bit.ly/htl-leonding-scripts
+
+
+== 2022-03-24
+
+* https://assertj.github.io/doc/#assertj-core
+
+
+== 2022-03-29 Di.
+
+=== Persistieren von Daten bei Docker
+
+* im Container (ist nicht wirklich ein persistentes Speichern, da die Daten gelöscht werden, wenn der Container gelöscht wird.)
+
+* bind mount
+
+* volume mount (host mounted volumes)
+
+
+=== docker-compose
+
+* Im Gegensatz zu virtualbox usw. werden nicht alle Dienste in eine vm installiert, sondern bei Docker wird fer jeden Dienst ein container erstellt.
+
+
+* Erstellen eines docker-compose.yml files
+
+[source,yaml]
+----
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres:14-bullseye
+    restart: always
+    environment:
+      POSTGRES_DB: db
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8090:8080
+----
+
+.Starten
+----
+docker-compose up
+----
+
+* Derzeit kann man auf die DB nur über den Adminer zugreifen (ist vergleichbar mit phpadmin)
+
+** http:// localhost:8090
+
+.Nachschauen welcher Dienst lokal läuft
+----
+netstat -ant| grep LISTEN
+----
+
+.Hinzufügen eines Ports für den direkten Zugriff
+[source,yaml]
+----
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres:14-bullseye
+    restart: always
+    environment:
+      POSTGRES_DB: db
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+    ports:
+      - 5432:5432
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8090:8080
+----
+
+* Wird die db nun wieder gestartet, so kann man direkt auf die db zugreifen: z.B. über intellij
+
+== 2022-05-05 Di.
+
+Lösung Wiederholungstest CLD:
+
+[plantuml, lösung_wdh_test]
+-----
+include::plantuml/wdh_test.puml[]
+-----
+
+image::POST.jpeg[]
+
+image::PUT.jpeg[]
+
+image::PATCH.jpeg[]
+
+image::DELETE.jpeg[]
+
+=== Erstellen eines Dockerfiles
+
+----
+FROM eclipse-temurin:17
+RUN mkdir /opt/app
+COPY japp.jar /opt/app
+CMD ["java", "-jar", "/opt/app/japp.jar"]
+----
+
+=== Erstellen eines uber-jars
+
+* quarkus.package.type=uber-jar
+
+* Dockerfile ins root kopieren
+
+* Korrektes Datenmodell
+* Beispieldaten sind zu erstellen (besonders für die Stammdaten):
+** entweder mittels unit-tests
+** oder über sql-Statements (in 3 files: create-xx.sql, insert-xx.sql und drop-xx.sql)
+
+* Geschäftsprozesse mit Unit-Tests abbilden z.B.
+** Erstellen einer Auktion mit einem Produkt und einem Verkäufer
+** Abgabe eines Angebots
+
+
+== 2022-05-03
+
+=== Dockern einer Java Anwendung
+
+==== http-Methoden
+
+image::GET.jpeg[]
+
+
+== 2022-05-10
+
+=== Stoppen aller Container
+
+----
+docker stop $(docker ps -q)
+----
+
+=== Löschen aller Container
+
+----
+docker rm $(docker ps -a -q)
+----
+
+* -a ... zeigt die gestoppten Container an
+
+
+=== Löschen aller Images
+
+----
+docker rmi $(docker images -q)
+----
+
+
+=== Übung
+
+. Erstellen eines Dockerfiles: im homeverzeichnis steht ein Text
+. Erstellen eines zweiten Dockerfiles, welches am ersten Docker-Image basiert und den Text im Home ausgibt
+
+== 2022-05-17
+
+* Fortsetzung Docker-Java-Tutorial
+
+== 2022-05-19
+
+=== Repository-Pattern
+
+* repository per aggregate
+
+.Source: https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design[Design the infrastructure persistence layer^]
+image::repository-pattern.png[]
+
+IMPORTANT: Es muss nicht für jede Entität ein eigenes Repository erstellt werden, sondern nur für starke Entitäten.
+
+
+=== Was muss beim Projekt gemacht werden, um positiv zu sein?
+
+* Ein korrektes Datenmodell muss implementiert und dokumentiert werden
+
+* Die gh-pages müssen verfügbar sein
+
+* Implementierung
+
+** sql-files müssen vorhanden sein
+*** sql-create-files
+*** sql-drop-files
+*** sql-insert-files
+
+** Die Java Zugriffsschicht muss funktionieren
+
+*** SqlRunner und SqlScript
+*** Repositories für Zugriff auf Tabellen
+
+** User-Stories müssen als Unit-Tests implementiert sein
+
+
+TIP: Empfehle folgendes Video: https://www.youtube.com/watch?v=6uSnF6IuWIw[JUnit 5 Tutorial - Nice & Easy^]
+
+* Test-Libraries:
+** https://github.com/lukas-krecan/JsonUnit
+** maybe better: https://github.com/karatelabs/karate#test-automation-made-simple[Intuit Karate^]

@@ -2157,8 +2157,8 @@ Die wichtigsten Begriffe, die in der Stunde gefragt wurden:
 * Domain = Fachbereich
 * Aggregieren: zusammenfassen
 * DAO = Data Access Object
-* CRAD = Create Read Add Delete
-=======
+* CRUD = Create Read Update Delete
+
 
 TIP: Empfehle folgendes Video: https://www.youtube.com/watch?v=6uSnF6IuWIw[JUnit 5 Tutorial - Nice & Easy^]
 

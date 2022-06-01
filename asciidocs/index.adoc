@@ -2140,8 +2140,29 @@ IMPORTANT: Es muss nicht für jede Entität ein eigenes Repository erstellt werd
 ** User-Stories müssen als Unit-Tests implementiert sein
 
 
+=== Databases
+
+.assoziative Beziehungen auflösen
+image::2022-05-19-board1.png[]
+
+.database transaction
+image::database-transactions.png[]
+
+image::database-structure.png[]
+
+=== Gelernte Begriffe
+
+Die wichtigsten Begriffe, die in der Stunde gefragt wurden:
+
+* Domain = Fachbereich
+* Aggregieren: zusammenfassen
+* DAO = Data Access Object
+* CRAD = Create Read Add Delete
+=======
+
 TIP: Empfehle folgendes Video: https://www.youtube.com/watch?v=6uSnF6IuWIw[JUnit 5 Tutorial - Nice & Easy^]
 
 * Test-Libraries:
 ** https://github.com/lukas-krecan/JsonUnit
 ** maybe better: https://github.com/karatelabs/karate#test-automation-made-simple[Intuit Karate^]
+

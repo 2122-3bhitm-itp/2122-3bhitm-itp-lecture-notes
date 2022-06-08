@@ -2032,14 +2032,6 @@ Lösung Wiederholungstest CLD:
 include::plantuml/wdh_test.puml[]
 -----
 
-image::POST.jpeg[]
-
-image::PUT.jpeg[]
-
-image::PATCH.jpeg[]
-
-image::DELETE.jpeg[]
-
 === Erstellen eines Dockerfiles
 
 ----
@@ -2071,7 +2063,15 @@ CMD ["java", "-jar", "/opt/app/japp.jar"]
 
 ==== http-Methoden
 
-image::GET.jpeg[]
+image::GET.jpeg[width=400]
+
+image::POST.jpeg[width=400]
+
+image::PUT.jpeg[width=400]
+
+image::PATCH.jpeg[width=400]
+
+image::DELETE.jpeg[width=400]
 
 
 == 2022-05-10

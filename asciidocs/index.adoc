@@ -2063,15 +2063,15 @@ CMD ["java", "-jar", "/opt/app/japp.jar"]
 
 ==== http-Methoden
 
-image::GET.jpeg[width=400]
+image::GET.jpeg[width=600]
 
-image::POST.jpeg[width=400]
+image::POST.jpeg[width=600]
 
-image::PUT.jpeg[width=400]
+image::PUT.jpeg[width=600]
 
-image::PATCH.jpeg[width=400]
+image::PATCH.jpeg[width=600]
 
-image::DELETE.jpeg[width=400]
+image::DELETE.jpeg[width=600]
 
 
 == 2022-05-10

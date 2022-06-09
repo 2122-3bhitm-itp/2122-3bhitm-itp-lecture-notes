@@ -2166,3 +2166,33 @@ TIP: Empfehle folgendes Video: https://www.youtube.com/watch?v=6uSnF6IuWIw[JUnit
 ** https://github.com/lukas-krecan/JsonUnit
 ** maybe better: https://github.com/karatelabs/karate#test-automation-made-simple[Intuit Karate^]
 
+
+== 2022-06-09
+
+image::cicd-pipeline.png[]
+
+* continous integration
+** local development in IDE.
+** commit/push to remote repo
+** testing the code with gh-actions
+
+
+* continous delivery
+** continous integration
+** create a release and deliver to
+*** staging server or
+*** gh-packages
+
+* continous development
+** continous integration + continous delivery
+** deployment on production server (or cloud, ...)
+
+
+.source: https://www.clouddefense.ai/blog/how-to-implement-effective-ci-cd-pipeline[How to Implement an Effective CI/CD Pipeline^]
+image::ci-delivery-deployment.png[]
+
+
+
+
+
+

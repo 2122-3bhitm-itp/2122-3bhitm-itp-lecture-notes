@@ -1,0 +1,14 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam shadowing false
+
+start
+:Hello world;
+if (Paket-Gewicht) is (> 10kg) then
+:Sende mit LKW;
+else
+:sende mit PKW;
+endif
+:Nimm Paket in Empfang;
+stop
+@enduml

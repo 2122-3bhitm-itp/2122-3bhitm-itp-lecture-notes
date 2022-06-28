@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+
+class Segler
+class Crew
+
+Ersthelfer --|> Segler
+Koch --|> Segler
+Skipper --|> Segler
+
+Segler "*" -- "*" Crew
+
+(Segler,Crew) .. Member
+Skipper "1" <-- "*" Crew : leitet >
+
+Crew "*" -- "*" Schiff
+(Crew,Schiff) .. Charter
+Charter "*" --right--> "1" Tour : fährt >
+
+Schiff "*" --> "1" Hafen
+
+
+'_Segler "1" -- "*" _Member
+'_Member "*" -- "1" _Crew
+'
+'class _Member {
+'  segler_id
+'  segler_id
+'}
+
+
+@enduml

@@ -1,0 +1,14 @@
+@startuml
+@startuml
+left to right direction
+actor "driver" as fc
+rectangle PKW {
+  usecase "transport goods" as UCGOODS
+  usecase "transport persons" as UCPERSONS
+  usecase "cruising" as UCCRUISE
+}
+fc -- UCGOODS
+fc -- UCPERSONS
+fc -- UCCRUISE
+@enduml
+@enduml

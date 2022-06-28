@@ -1,0 +1,22 @@
+@startuml
+left to right direction
+node gitrepo {
+  file ".java" as code
+}
+node "gh-build-server" <<ubuntu>> as ghserver {
+    queue {
+      agent compile
+      agent package
+      agent test
+      agent deploy
+    }
+}
+node "remote-server oravm" <<ubuntu>> as remoteserver {
+    node production
+}
+code --> compile
+compile --> package
+package --> test
+test --> deploy
+deploy --> production
+@enduml

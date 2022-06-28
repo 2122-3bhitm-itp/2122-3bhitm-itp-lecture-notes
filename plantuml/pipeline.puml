@@ -1,0 +1,21 @@
+@startuml
+left to right direction
+
+rectangle "IDE" as ide {
+  file "java-code" as code
+}
+
+database "git-repo" as gitrepo
+
+node "gh-build-server" <<ubuntu>> as ghserver {
+  artifact ".jar-file" as ghjar
+}
+node "remote-server" <<ubuntu>> as remoteserver {
+  artifact ".jar-file" as remotejar
+}
+
+code --> gitrepo
+gitrepo --> ghjar : triggered by push
+ghjar --> remotejar : gh-actions (.yml))
+
+@enduml

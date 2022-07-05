@@ -2032,14 +2032,6 @@ Lösung Wiederholungstest CLD:
 include::plantuml/wdh_test.puml[]
 -----
 
-image::POST.jpeg[]
-
-image::PUT.jpeg[]
-
-image::PATCH.jpeg[]
-
-image::DELETE.jpeg[]
-
 === Erstellen eines Dockerfiles
 
 ----
@@ -2071,7 +2063,15 @@ CMD ["java", "-jar", "/opt/app/japp.jar"]
 
 ==== http-Methoden
 
-image::GET.jpeg[]
+image::GET.jpeg[width=600]
+
+image::POST.jpeg[width=600]
+
+image::PUT.jpeg[width=600]
+
+image::PATCH.jpeg[width=600]
+
+image::DELETE.jpeg[width=600]
 
 
 == 2022-05-10
@@ -2116,7 +2116,7 @@ docker rmi $(docker images -q)
 .Source: https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design[Design the infrastructure persistence layer^]
 image::repository-pattern.png[]
 
-IMPORTANT: Es muss nicht für jede Entität ein eigenes Repository erstellt werden, sondern nur für starke Entitäten.
+IMPORTANT: Es muss nicht für jede Entität ein eigenes Repository erstellt werden, sondern nur für starke Entitäten und den dazugehörigen schwachen Entitäten.
 
 
 === Was muss beim Projekt gemacht werden, um positiv zu sein?
@@ -2140,8 +2140,59 @@ IMPORTANT: Es muss nicht für jede Entität ein eigenes Repository erstellt werd
 ** User-Stories müssen als Unit-Tests implementiert sein
 
 
+=== Databases
+
+.assoziative Beziehungen auflösen
+image::2022-05-19-board1.png[]
+
+.database transaction
+image::database-transactions.png[]
+
+image::database-structure.png[]
+
+=== Gelernte Begriffe
+
+Die wichtigsten Begriffe, die in der Stunde gefragt wurden:
+
+* Domain = Fachbereich
+* Aggregieren: zusammenfassen
+* DAO = Data Access Object
+* CRUD = Create Read Update Delete
+
+
 TIP: Empfehle folgendes Video: https://www.youtube.com/watch?v=6uSnF6IuWIw[JUnit 5 Tutorial - Nice & Easy^]
 
 * Test-Libraries:
 ** https://github.com/lukas-krecan/JsonUnit
 ** maybe better: https://github.com/karatelabs/karate#test-automation-made-simple[Intuit Karate^]
+
+
+== 2022-06-09
+
+image::cicd-pipeline.png[]
+
+* continous integration
+** local development in IDE.
+** commit/push to remote repo
+** testing the code with gh-actions
+
+
+* continous delivery
+** continous integration
+** create a release and deliver to
+*** staging server or
+*** gh-packages
+
+* continous development
+** continous integration + continous delivery
+** deployment on production server (or cloud, ...)
+
+
+.source: https://www.clouddefense.ai/blog/how-to-implement-effective-ci-cd-pipeline[How to Implement an Effective CI/CD Pipeline^]
+image::ci-delivery-deployment.png[]
+
+
+
+
+
+
